@@ -117,5 +117,11 @@ export const valueProps = [
   { key: "allinone", title: "All in one place", description: "Plan, ride, track and share — one app." },
 ] as const;
 
+/**
+ * Optional hero background video (e.g. "/hero.mp4" in /public, or a CDN URL).
+ * When set, it plays muted & looped over the poster image below.
+ */
+export const heroVideo: string | null = null;
+
 export const heroImage =
-  "https://images.unsplash.com/photo-1762707232257-ab6057b4128b?w=2000&q=80&auto=format&fit=crop";
+  "https://images.unsplash.com/photo-1781950879206-29092ae8a44c?w=2400&q=80&auto=format&fit=crop";

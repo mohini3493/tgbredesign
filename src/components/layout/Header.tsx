@@ -12,7 +12,11 @@ import { cn } from "@/lib/utils";
 import { Container } from "./Container";
 import { Logo } from "./Logo";
 
-export function Header() {
+/**
+ * @param overlay  Transparent header that floats over a full-bleed hero (homepage).
+ *                 Turns solid white once the page is scrolled or the menu opens.
+ */
+export function Header({ overlay = false }: { overlay?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -30,17 +34,24 @@ export function Header() {
     };
   }, [open]);
 
+  const transparent = overlay && !scrolled && !open;
+
   return (
     <header
+      data-transparent={transparent || undefined}
       className={cn(
-        "sticky top-0 z-50 border-b bg-white/95 backdrop-blur transition-[border-color,box-shadow] duration-200",
-        scrolled ? "border-border shadow-[0_4px_20px_rgba(17,20,24,0.06)]" : "border-transparent",
+        "group/header top-0 z-50 border-b transition-[background-color,border-color,box-shadow] duration-300",
+        overlay ? "fixed inset-x-0" : "sticky",
+        transparent
+          ? "border-transparent bg-transparent"
+          : "bg-white/95 backdrop-blur",
+        !transparent && (scrolled ? "border-border shadow-[0_4px_20px_rgba(17,20,24,0.06)]" : "border-transparent"),
       )}
     >
-      <Container className="flex h-18 items-center gap-6">
+      <Container className="flex h-[88px] items-center gap-6">
         <Logo priority />
 
-        <nav aria-label="Main" className="ml-4 hidden flex-1 items-center gap-1 lg:flex">
+        <nav aria-label="Main" className="ml-auto hidden items-center gap-1 lg:flex">
           {/* usePathname is request data: stream the active state, prerender plain links */}
           <Suspense fallback={<NavLinks variant="desktop" />}>
             <ActiveNavLinks variant="desktop" />
@@ -48,16 +59,16 @@ export function Header() {
         </nav>
 
         <div className="ml-auto flex items-center gap-1 lg:ml-0">
-          <Link href="/search" aria-label="Search" className={buttonVariants({ variant: "ghost", size: "icon" })}>
+          <Link href="/search" aria-label="Search" className={cn(buttonVariants({ variant: "ghost", size: "icon" }), iconTone(transparent))}>
             <Search className="!size-5" />
           </Link>
           <Link
             href="/notifications"
             aria-label="Notifications (new)"
-            className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "relative hidden sm:inline-flex")}
+            className={cn(buttonVariants({ variant: "ghost", size: "icon" }), iconTone(transparent), "relative hidden sm:inline-flex")}
           >
             <Bell className="!size-5" />
-            <span className="absolute right-2.5 top-2.5 size-2 rounded-full bg-primary ring-2 ring-white" />
+            <span className={cn("absolute right-2.5 top-2.5 size-2 rounded-full bg-primary ring-2", transparent ? "ring-transparent" : "ring-white")} />
           </Link>
           {features.shop && <CartButton />}
           {features.auth && (
@@ -65,7 +76,14 @@ export function Header() {
               Log in
             </ButtonLink>
           )}
-          <ButtonLink href={siteConfig.appLinks.download} size="sm" className="ml-2 hidden md:inline-flex">
+          <ButtonLink
+            href={siteConfig.appLinks.download}
+            size="sm"
+            className={cn(
+              "ml-2 hidden md:inline-flex",
+              transparent && "rounded-full bg-white text-ink shadow-[0_4px_18px_rgba(0,0,0,0.25)] hover:bg-white hover:text-primary",
+            )}
+          >
             Download App <Download />
           </ButtonLink>
           <button
@@ -74,7 +92,7 @@ export function Header() {
             aria-expanded={open}
             aria-controls="mobile-menu"
             onClick={() => setOpen((v) => !v)}
-            className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "lg:hidden")}
+            className={cn(buttonVariants({ variant: "ghost", size: "icon" }), iconTone(transparent), "lg:hidden")}
           >
             {open ? <X className="!size-6" /> : <Menu className="!size-6" />}
           </button>
@@ -85,7 +103,7 @@ export function Header() {
       <div
         id="mobile-menu"
         hidden={!open}
-        className="fixed inset-x-0 top-18 bottom-0 z-40 overflow-y-auto border-t border-border bg-white lg:hidden"
+        className="fixed inset-x-0 top-[88px] bottom-0 z-40 overflow-y-auto border-t border-border bg-white lg:hidden"
       >
         <Container className="py-4">
           <nav aria-label="Mobile" className="flex flex-col">
@@ -138,14 +156,18 @@ function NavLinks({ variant, pathname, onNavigate }: NavLinksProps) {
           variant === "desktop"
             ? "relative rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:text-primary"
             : "border-b border-border py-4 font-display text-2xl font-bold uppercase",
-          active ? "text-primary" : "text-ink",
+          active ? "text-primary" : "text-ink group-data-[transparent]/header:text-white/85 group-data-[transparent]/header:hover:text-white",
         )}
       >
         {item.label}
         {variant === "desktop" && active && (
-          <span className="absolute inset-x-3 -bottom-[17px] h-0.5 rounded-full bg-primary" />
+          <span className="absolute inset-x-3 -bottom-[26px] h-0.5 rounded-full bg-primary" />
         )}
       </Link>
     );
   });
+}
+
+function iconTone(transparent: boolean) {
+  return transparent ? "text-white hover:bg-white/10" : undefined;
 }

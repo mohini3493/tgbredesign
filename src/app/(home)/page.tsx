@@ -24,13 +24,7 @@ export default function HomePage() {
     <>
       <Hero />
 
-      <SectionBoundary title="Stats">
-        <Suspense fallback={<StatsStripSkeleton />}>
-          <StatsStrip />
-        </Suspense>
-      </SectionBoundary>
-
-      <Section aria-labelledby="routes-title">
+      <Section aria-labelledby="routes-title" className="pb-10 md:pb-14">
         <SectionHeader
           id="routes-title"
           eyebrow="Curated by riders"
@@ -44,6 +38,15 @@ export default function HomePage() {
           </Suspense>
         </SectionBoundary>
       </Section>
+
+      {/* Platform stats, right after the routes */}
+      <div className="pb-12 md:pb-20">
+        <SectionBoundary title="Stats">
+          <Suspense fallback={<StatsStripSkeleton />}>
+            <StatsStrip />
+          </Suspense>
+        </SectionBoundary>
+      </div>
 
       <Section aria-labelledby="events-title" className="bg-white">
         <SectionHeader

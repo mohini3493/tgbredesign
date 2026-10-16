@@ -136,6 +136,13 @@ NEXT_PUBLIC_FEATURE_AUTH=true         # "Log in" button, protected /account rout
 - **Auth:** `getSession()` (server) and `useSession()` (client) are stubs ready for the
   mobile app's JWT. `src/proxy.ts` redirects protected routes to `/login`.
 
+## Homepage hero
+
+Full-screen hero in `src/features/home/components/Hero.tsx` (framer-motion entrance animations,
+Plus Jakarta Sans headline, transparent header via `src/app/(home)/layout.tsx`).
+To use a background video instead of the photo, put the file in `/public` and set
+`heroVideo = "/hero.mp4"` in `src/config/site.ts` — the photo becomes its poster.
+
 ## Images
 
 Mock data uses Unsplash photos; the logo loads from `tgb.theshashank.com`. Both hosts are allowed

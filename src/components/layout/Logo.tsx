@@ -16,7 +16,7 @@ export function Logo({ className, priority }: { className?: string; priority?: b
     <Link href="/" aria-label="TGB – The Good Biker, home" className={cn("inline-flex shrink-0 items-center", className)}>
       {failed ? (
         <span className="flex items-center gap-2">
-          <span className="font-display text-4xl font-extrabold italic leading-none tracking-tight text-primary">
+          <span className="font-display text-6xl font-extrabold italic leading-none tracking-tight text-primary">
             TGB
           </span>
           <span className="font-display text-[13px] font-bold uppercase leading-[1.05] text-secondary">
@@ -29,10 +29,10 @@ export function Logo({ className, priority }: { className?: string; priority?: b
         <Image
           src={siteConfig.logo}
           alt="TGB – The Good Biker"
-          width={180}
-          height={54}
+          width={240}
+          height={72}
           priority={priority}
-          className="h-10 w-auto md:h-11"
+          className="h-14 w-auto md:h-[68px]"
           onError={() => setFailed(true)}
         />
       )}

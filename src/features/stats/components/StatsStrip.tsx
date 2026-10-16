@@ -36,7 +36,7 @@ export async function StatsStrip() {
 
 function StatsShell({ children }: { children: React.ReactNode }) {
   return (
-    <Container className="relative z-10 -mt-20 md:-mt-24">
+    <Container className="relative z-10">
       <div className="rounded-card border border-border bg-white px-4 py-6 shadow-card md:py-8">{children}</div>
     </Container>
   );
