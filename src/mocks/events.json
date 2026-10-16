@@ -1,0 +1,79 @@
+{
+  "data": [
+    {
+      "id": "ev_ibw",
+      "slug": "india-bike-week-2026",
+      "title": "India Bike Week 2026",
+      "venue": "Vagator",
+      "city": "Goa",
+      "startDate": "2026-12-04",
+      "endDate": "2026-12-06",
+      "coverImage": "https://images.unsplash.com/photo-1687181493462-0ca5d5627285?w=1200&q=75&auto=format&fit=crop",
+      "ticketUrl": "/events/india-bike-week-2026",
+      "priceINR": 2499,
+      "category": "Festival",
+      "membersOnly": false
+    },
+    {
+      "id": "ev_rm",
+      "slug": "rider-mania-2026",
+      "title": "Rider Mania 2026",
+      "venue": "Vagator Hilltop",
+      "city": "Goa",
+      "startDate": "2026-11-20",
+      "endDate": "2026-11-22",
+      "coverImage": "https://images.unsplash.com/photo-1700891591563-5327de496cfd?w=1200&q=75&auto=format&fit=crop",
+      "ticketUrl": "/events/rider-mania-2026",
+      "priceINR": 3500,
+      "category": "Festival",
+      "membersOnly": false
+    },
+    {
+      "id": "ev_motogp",
+      "slug": "motogp-bharat-2027",
+      "title": "MotoGP Bharat",
+      "venue": "Buddh Int. Circuit",
+      "city": "Greater Noida",
+      "startDate": "2027-02-19",
+      "endDate": "2027-02-21",
+      "coverImage": "https://images.unsplash.com/photo-1760256995381-c90eac2060f1?w=1200&q=75&auto=format&fit=crop",
+      "ticketUrl": "/events/motogp-bharat-2027",
+      "priceINR": 1800,
+      "category": "Racing",
+      "membersOnly": false
+    },
+    {
+      "id": "ev_trackday",
+      "slug": "tgb-track-day-chennai",
+      "title": "TGB Track Day",
+      "venue": "Madras Motor Race Track",
+      "city": "Chennai",
+      "startDate": "2026-11-08",
+      "endDate": "2026-11-08",
+      "coverImage": "https://images.unsplash.com/photo-1621958776520-ed4c553222f3?w=1200&q=75&auto=format&fit=crop",
+      "ticketUrl": "/events/tgb-track-day-chennai",
+      "priceINR": 4999,
+      "category": "Track day",
+      "membersOnly": true
+    },
+    {
+      "id": "ev_himalayan",
+      "slug": "himalayan-odyssey-2027",
+      "title": "Himalayan Odyssey",
+      "venue": "Manali → Leh",
+      "city": "Manali",
+      "startDate": "2027-06-14",
+      "endDate": "2027-06-28",
+      "coverImage": "https://images.unsplash.com/photo-1701599346665-88d37f67fed0?w=1200&q=75&auto=format&fit=crop",
+      "ticketUrl": "/events/himalayan-odyssey-2027",
+      "priceINR": 45000,
+      "category": "Expedition",
+      "membersOnly": false
+    }
+  ],
+  "meta": {
+    "page": 1,
+    "limit": 5,
+    "total": 5
+  }
+}

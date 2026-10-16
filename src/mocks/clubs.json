@@ -1,0 +1,45 @@
+{
+  "data": [
+    {
+      "id": "cl_gearup",
+      "slug": "gearupwheels",
+      "name": "GearUpWheels",
+      "city": "Bangalore",
+      "memberCount": 1200,
+      "coverImage": "https://images.unsplash.com/photo-1762696782497-2b39df0f4523?w=800&q=75&auto=format&fit=crop",
+      "logo": null,
+      "ridingStyle": "Touring",
+      "verified": true,
+      "membershipRequired": false
+    },
+    {
+      "id": "cl_sincity",
+      "slug": "sin-city-saints",
+      "name": "Sin City Saints",
+      "city": "Delhi NCR",
+      "memberCount": 980,
+      "coverImage": "https://images.unsplash.com/photo-1758090524309-199d4588e225?w=800&q=75&auto=format&fit=crop",
+      "logo": null,
+      "ridingStyle": "Cruiser",
+      "verified": true,
+      "membershipRequired": true
+    },
+    {
+      "id": "cl_touring",
+      "slug": "touring-tribe-india",
+      "name": "Touring Tribe India",
+      "city": "All India",
+      "memberCount": 1600,
+      "coverImage": "https://images.unsplash.com/photo-1768410318044-8a43bf8fdb2c?w=800&q=75&auto=format&fit=crop",
+      "logo": null,
+      "ridingStyle": "Adventure",
+      "verified": true,
+      "membershipRequired": false
+    }
+  ],
+  "meta": {
+    "page": 1,
+    "limit": 3,
+    "total": 3
+  }
+}

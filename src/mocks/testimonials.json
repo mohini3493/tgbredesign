@@ -1,0 +1,30 @@
+{
+  "data": [
+    {
+      "id": "t1",
+      "name": "Kabir Singh",
+      "city": "Delhi",
+      "avatar": "https://images.unsplash.com/photo-1596604820148-da737958af16?w=200&q=75&auto=format&fit=crop",
+      "quote": "Found my riding crew for Spiti in a week. The route notes saved us twice on Kunzum La."
+    },
+    {
+      "id": "t2",
+      "name": "Ananya Rao",
+      "city": "Pune",
+      "avatar": "https://images.unsplash.com/photo-1463335361701-e90f4c5045d0?w=200&q=75&auto=format&fit=crop",
+      "quote": "As a solo woman rider, verified clubs and live ride tracking make every weekend ride feel safe."
+    },
+    {
+      "id": "t3",
+      "name": "Rohan Mehta",
+      "city": "Mumbai",
+      "avatar": "https://images.unsplash.com/photo-1712425718137-491250cfde88?w=200&q=75&auto=format&fit=crop",
+      "quote": "Rented a bike in Goa for India Bike Week straight from the app. Zero hassle."
+    }
+  ],
+  "meta": {
+    "page": 1,
+    "limit": 3,
+    "total": 3
+  }
+}

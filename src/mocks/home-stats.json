@@ -1,0 +1,10 @@
+{
+  "data": {
+    "riders": 10000,
+    "clubs": 150,
+    "routes": 5000,
+    "events": 500,
+    "cities": 25,
+    "kmRidden": 1000000
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "data": [
+    {
+      "id": "ct_blr",
+      "slug": "bangalore",
+      "name": "Bangalore",
+      "image": "https://images.unsplash.com/photo-1752137857444-07e770e16fb3?w=1200&q=75&auto=format&fit=crop",
+      "ridersCount": 12000,
+      "clubsCount": 98
+    },
+    {
+      "id": "ct_mum",
+      "slug": "mumbai",
+      "name": "Mumbai",
+      "image": "https://images.unsplash.com/photo-1595658658481-d53d3f999875?w=1200&q=75&auto=format&fit=crop",
+      "ridersCount": 15000,
+      "clubsCount": 120
+    },
+    {
+      "id": "ct_del",
+      "slug": "delhi-ncr",
+      "name": "Delhi NCR",
+      "image": "https://images.unsplash.com/photo-1592639296346-560c37a0f711?w=800&q=75&auto=format&fit=crop",
+      "ridersCount": 18000,
+      "clubsCount": 142
+    },
+    {
+      "id": "ct_pun",
+      "slug": "pune",
+      "name": "Pune",
+      "image": "https://images.unsplash.com/photo-1572782252655-9c8771392601?w=800&q=75&auto=format&fit=crop",
+      "ridersCount": 9000,
+      "clubsCount": 86
+    },
+    {
+      "id": "ct_hyd",
+      "slug": "hyderabad",
+      "name": "Hyderabad",
+      "image": "https://images.unsplash.com/photo-1696941515998-d83f24967aca?w=800&q=75&auto=format&fit=crop",
+      "ridersCount": 8000,
+      "clubsCount": 60
+    },
+    {
+      "id": "ct_jai",
+      "slug": "jaipur",
+      "name": "Jaipur",
+      "image": "https://images.unsplash.com/photo-1650530777057-3a7dbc24bf6c?w=800&q=75&auto=format&fit=crop",
+      "ridersCount": 6000,
+      "clubsCount": 48
+    },
+    {
+      "id": "ct_goa",
+      "slug": "goa",
+      "name": "Goa",
+      "image": "https://images.unsplash.com/photo-1614082242765-7c98ca0f3df3?w=800&q=75&auto=format&fit=crop",
+      "ridersCount": 6000,
+      "clubsCount": 35
+    },
+    {
+      "id": "ct_che",
+      "slug": "chennai",
+      "name": "Chennai",
+      "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&q=75&auto=format&fit=crop",
+      "ridersCount": 7000,
+      "clubsCount": 55
+    }
+  ],
+  "meta": {
+    "page": 1,
+    "limit": 8,
+    "total": 8
+  }
+}

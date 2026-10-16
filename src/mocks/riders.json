@@ -1,0 +1,96 @@
+{
+  "data": [
+    {
+      "id": "rd_1",
+      "username": "shashank",
+      "name": "Shashank T.",
+      "avatar": "https://images.unsplash.com/photo-1670110531916-41045e83cb0a?w=200&q=75&auto=format&fit=crop",
+      "city": "Bangalore",
+      "styles": [
+        "Touring",
+        "ADV"
+      ],
+      "ridesCount": 187,
+      "totalKm": 42000,
+      "isOnline": true,
+      "bike": "Himalayan 450"
+    },
+    {
+      "id": "rd_2",
+      "username": "ananya",
+      "name": "Ananya Rao",
+      "avatar": "https://images.unsplash.com/photo-1463335361701-e90f4c5045d0?w=200&q=75&auto=format&fit=crop",
+      "city": "Pune",
+      "styles": [
+        "Touring",
+        "Cruising"
+      ],
+      "ridesCount": 92,
+      "totalKm": 18000,
+      "isOnline": false,
+      "bike": "Classic 350"
+    },
+    {
+      "id": "rd_3",
+      "username": "kabir",
+      "name": "Kabir Singh",
+      "avatar": "https://images.unsplash.com/photo-1596604820148-da737958af16?w=200&q=75&auto=format&fit=crop",
+      "city": "Delhi",
+      "styles": [
+        "ADV",
+        "Off-road"
+      ],
+      "ridesCount": 217,
+      "totalKm": 36000,
+      "isOnline": true,
+      "bike": "KTM 390 Adventure"
+    },
+    {
+      "id": "rd_4",
+      "username": "meera",
+      "name": "Meera Iyer",
+      "avatar": "https://images.unsplash.com/photo-1526392195523-1f40e4e78117?w=200&q=75&auto=format&fit=crop",
+      "city": "Chennai",
+      "styles": [
+        "Street"
+      ],
+      "ridesCount": 64,
+      "totalKm": 9800,
+      "isOnline": false,
+      "bike": "Duke 250"
+    },
+    {
+      "id": "rd_5",
+      "username": "rohan",
+      "name": "Rohan Mehta",
+      "avatar": "https://images.unsplash.com/photo-1712425718137-491250cfde88?w=200&q=75&auto=format&fit=crop",
+      "city": "Mumbai",
+      "styles": [
+        "Cruiser"
+      ],
+      "ridesCount": 138,
+      "totalKm": 28000,
+      "isOnline": true,
+      "bike": "Super Meteor 650"
+    },
+    {
+      "id": "rd_6",
+      "username": "varsha",
+      "name": "Varsha Pillai",
+      "avatar": "https://images.unsplash.com/photo-1628477116196-48afe0d209e0?w=200&q=75&auto=format&fit=crop",
+      "city": "Bangalore",
+      "styles": [
+        "Touring"
+      ],
+      "ridesCount": 71,
+      "totalKm": 12000,
+      "isOnline": false,
+      "bike": "Interceptor 650"
+    }
+  ],
+  "meta": {
+    "page": 1,
+    "limit": 6,
+    "total": 6
+  }
+}
