@@ -8,7 +8,10 @@ import { RiderServices } from "@/features/home/components/RiderServices";
 import { Testimonials, TestimonialsSkeleton, ValueProps } from "@/features/home/components/WhyTgb";
 import { StatsStrip, StatsStripSkeleton } from "@/features/stats/components/StatsStrip";
 import { PopularRoutes, PopularRoutesSkeleton } from "@/features/routes/components/PopularRoutes";
-import { UpcomingEvents, UpcomingEventsSkeleton } from "@/features/events/components/UpcomingEvents";
+import {
+  UpcomingEvents,
+  UpcomingEventsSkeleton,
+} from "@/features/events/components/UpcomingEvents";
 import { PopularClubs, PopularClubsSkeleton } from "@/features/clubs/components/PopularClubs";
 import { RidersNearYou } from "@/features/riders/components/RidersNearYou";
 import { ExploreCities, ExploreCitiesSkeleton } from "@/features/cities/components/ExploreCities";
@@ -62,23 +65,23 @@ export default function HomePage() {
         </SectionBoundary>
       </Section>
 
-      <Section aria-label="Clubs and riders">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-7">
-            <SectionHeader eyebrow="Ride together" title="Popular clubs" action={{ label: "View all clubs", href: "/clubs" }} />
-            <SectionBoundary title="Clubs">
-              <Suspense fallback={<PopularClubsSkeleton />}>
-                <PopularClubs />
-              </Suspense>
-            </SectionBoundary>
-          </div>
-          <div className="flex flex-col lg:col-span-5">
-            <SectionHeader eyebrow="Your next riding buddy" title="Riders near you" />
-            <div className="flex-1">
-              <RidersNearYou />
-            </div>
-          </div>
-        </div>
+      <Section aria-labelledby="clubs-title">
+        <SectionHeader
+          id="clubs-title"
+          eyebrow="Ride together"
+          title="Popular clubs"
+          action={{ label: "View all clubs", href: "/clubs" }}
+        />
+        <SectionBoundary title="Clubs">
+          <Suspense fallback={<PopularClubsSkeleton />}>
+            <PopularClubs />
+          </Suspense>
+        </SectionBoundary>
+      </Section>
+
+      <Section aria-labelledby="riders-title" className="pt-0 md:pt-0">
+        <SectionHeader id="riders-title" eyebrow="Your next riding buddy" title="Riders near you" />
+        <RidersNearYou />
       </Section>
 
       <Section aria-labelledby="cities-title" className="pt-0 md:pt-0">
@@ -110,6 +113,10 @@ export default function HomePage() {
       <Section aria-labelledby="why-title" className="pt-0 md:pt-0">
         <SectionHeader id="why-title" eyebrow="Why TGB" title="Why riders love TGB" />
         <ValueProps />
+      </Section>
+
+      <Section aria-labelledby="testimonials-title" className="pt-0 md:pt-0">
+        <SectionHeader id="testimonials-title" eyebrow="Testimonials" title="What riders say" />
         <SectionBoundary title="Testimonials">
           <Suspense fallback={<TestimonialsSkeleton />}>
             <Testimonials />

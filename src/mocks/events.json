@@ -69,11 +69,39 @@
       "priceINR": 45000,
       "category": "Expedition",
       "membersOnly": false
+    },
+    {
+      "id": "ev_rann",
+      "slug": "rann-utsav-ride-2026",
+      "title": "Rann Utsav Ride",
+      "venue": "Dhordo, White Rann",
+      "city": "Kutch",
+      "startDate": "2026-12-18",
+      "endDate": "2026-12-20",
+      "coverImage": "https://images.unsplash.com/photo-1762696782497-2b39df0f4523?w=1200&q=75&auto=format&fit=crop",
+      "ticketUrl": "/events/rann-utsav-ride-2026",
+      "priceINR": 6999,
+      "category": "Group ride",
+      "membersOnly": false
+    },
+    {
+      "id": "ev_nightride",
+      "slug": "bengaluru-night-ride-2027",
+      "title": "Bengaluru Night Ride",
+      "venue": "Nandi Hills",
+      "city": "Bengaluru",
+      "startDate": "2027-01-16",
+      "endDate": "2027-01-16",
+      "coverImage": "https://images.unsplash.com/photo-1758090524309-199d4588e225?w=1200&q=75&auto=format&fit=crop",
+      "ticketUrl": "/events/bengaluru-night-ride-2027",
+      "priceINR": 999,
+      "category": "Group ride",
+      "membersOnly": true
     }
   ],
   "meta": {
     "page": 1,
-    "limit": 5,
-    "total": 5
+    "limit": 7,
+    "total": 7
   }
 }

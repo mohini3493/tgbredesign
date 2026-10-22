@@ -20,11 +20,44 @@
       "city": "Mumbai",
       "avatar": "https://images.unsplash.com/photo-1712425718137-491250cfde88?w=200&q=75&auto=format&fit=crop",
       "quote": "Rented a bike in Goa for India Bike Week straight from the app. Zero hassle."
+    },
+    {
+      "id": "t4",
+      "name": "Shashank T.",
+      "city": "Bangalore",
+      "avatar": "https://images.unsplash.com/photo-1670110531916-41045e83cb0a?w=200&q=75&auto=format&fit=crop",
+      "quote": "Logged 40,000 km on TGB routes. The fuel-stop and stay notes on the Ladakh loop are gold."
+    },
+    {
+      "id": "t5",
+      "name": "Meera Iyer",
+      "city": "Chennai",
+      "avatar": "https://images.unsplash.com/photo-1526392195523-1f40e4e78117?w=200&q=75&auto=format&fit=crop",
+      "quote": "My first track day was booked, paid and confirmed in minutes. The members-only slots are worth it."
+    },
+    {
+      "id": "t6",
+      "name": "Varsha Pillai",
+      "city": "Bangalore",
+      "avatar": "https://images.unsplash.com/photo-1628477116196-48afe0d209e0?w=200&q=75&auto=format&fit=crop",
+      "quote": "Got my Interceptor serviced through the app before a Coorg ride. Transparent pricing, on-time pickup."
+    },
+    {
+      "id": "t7",
+      "name": "Arjun Nair",
+      "city": "Kochi",
+      "quote": "Our club went from WhatsApp chaos to one place for members, rides and tickets. Turnout doubled."
+    },
+    {
+      "id": "t8",
+      "name": "Priya Sharma",
+      "city": "Jaipur",
+      "quote": "Joined a Rann Utsav group ride with strangers and came back with friends for life."
     }
   ],
   "meta": {
     "page": 1,
-    "limit": 3,
-    "total": 3
+    "limit": 8,
+    "total": 8
   }
 }

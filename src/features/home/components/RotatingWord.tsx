@@ -4,7 +4,15 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 /** Cycles through words with a slide-up + blur transition. */
-export function RotatingWord({ words, interval = 2400, className }: { words: string[]; interval?: number; className?: string }) {
+export function RotatingWord({
+  words,
+  interval = 2400,
+  className,
+}: {
+  words: string[];
+  interval?: number;
+  className?: string;
+}) {
   const [i, setI] = useState(0);
   const reduce = useReducedMotion();
 

@@ -1,10 +1,16 @@
 import { Compass, HeartHandshake, Quote, ShieldCheck, Sparkles } from "lucide-react";
 import { valueProps } from "@/config/site";
+import { Carousel } from "@/components/shared/Carousel";
 import { SmartImage } from "@/components/shared/SmartImage";
 import { Skeleton } from "@/components/ui/skeleton";
 import { testimonialsService } from "@/features/testimonials/services";
 
-const icons = { community: HeartHandshake, routes: Compass, marketplace: ShieldCheck, allinone: Sparkles } as const;
+const icons = {
+  community: HeartHandshake,
+  routes: Compass,
+  marketplace: ShieldCheck,
+  allinone: Sparkles,
+} as const;
 
 export function ValueProps() {
   return (
@@ -12,12 +18,12 @@ export function ValueProps() {
       {valueProps.map((v) => {
         const Icon = icons[v.key];
         return (
-          <li key={v.key} className="rounded-card border border-border bg-white p-6">
-            <span className="grid size-12 place-items-center rounded-full bg-secondary-tint text-secondary">
+          <li key={v.key} className="rounded-card border-border border bg-white p-6">
+            <span className="bg-secondary-tint text-secondary grid size-12 place-items-center rounded-full">
               <Icon className="size-6" strokeWidth={1.75} aria-hidden />
             </span>
             <h3 className="mt-4 text-base font-bold">{v.title}</h3>
-            <p className="mt-1 text-sm text-body">{v.description}</p>
+            <p className="text-body mt-1 text-sm">{v.description}</p>
           </li>
         );
       })}
@@ -25,36 +31,55 @@ export function ValueProps() {
   );
 }
 
+// 5 visible on desktop, 3 on tablet, ~1 on mobile (gap: 16px mobile, 24px md+)
+const slide = "w-[85%] shrink-0 snap-start sm:w-[calc(33.333%-16px)] lg:w-[calc(20%-19.2px)]";
+
+function initials(name: string) {
+  return name
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join("")
+    .toUpperCase();
+}
+
 export async function Testimonials() {
   const items = await testimonialsService.getFeatured();
   return (
-    <ul className="mt-6 grid gap-4 md:grid-cols-3">
-      {items.slice(0, 3).map((t) => (
-        <li key={t.id}>
-          <figure className="flex h-full flex-col rounded-card bg-white p-6 shadow-card">
-            <Quote className="size-7 text-primary" aria-hidden />
-            <blockquote className="mt-3 flex-1 text-[15px] leading-relaxed text-ink">“{t.quote}”</blockquote>
-            <figcaption className="mt-5 flex items-center gap-3">
-              <span className="relative size-10 overflow-hidden rounded-full bg-secondary-tint">
+    <Carousel label="Rider testimonials" autoplay={3500}>
+      {items.map((t) => (
+        <figure
+          key={t.id}
+          className={`${slide} rounded-card shadow-card flex flex-col bg-white p-6`}
+        >
+          <Quote className="text-primary size-7" aria-hidden />
+          <blockquote className="text-ink mt-3 flex-1 text-[15px] leading-relaxed">
+            “{t.quote}”
+          </blockquote>
+          <figcaption className="mt-5 flex items-center gap-3">
+            <span className="bg-secondary-tint relative grid size-10 shrink-0 place-items-center overflow-hidden rounded-full">
+              {t.avatar ? (
                 <SmartImage src={t.avatar} alt="" fill sizes="40px" className="object-cover" />
-              </span>
-              <span>
-                <span className="block text-sm font-bold text-ink">{t.name}</span>
-                <span className="block text-xs text-muted">{t.city}</span>
-              </span>
-            </figcaption>
-          </figure>
-        </li>
+              ) : (
+                <span className="text-secondary text-xs font-bold">{initials(t.name)}</span>
+              )}
+            </span>
+            <span className="min-w-0">
+              <span className="text-ink block truncate text-sm font-bold">{t.name}</span>
+              <span className="text-muted block truncate text-xs">{t.city}</span>
+            </span>
+          </figcaption>
+        </figure>
       ))}
-    </ul>
+    </Carousel>
   );
 }
 
 export function TestimonialsSkeleton() {
   return (
-    <div className="mt-6 grid gap-4 md:grid-cols-3">
-      {Array.from({ length: 3 }, (_, i) => (
-        <Skeleton key={i} className="h-52" />
+    <div className="flex gap-4 overflow-hidden md:gap-6">
+      {Array.from({ length: 5 }, (_, i) => (
+        <Skeleton key={i} className={`${slide} h-64`} />
       ))}
     </div>
   );

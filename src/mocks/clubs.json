@@ -35,11 +35,35 @@
       "ridingStyle": "Adventure",
       "verified": true,
       "membershipRequired": false
+    },
+    {
+      "id": "cl_bulleteers",
+      "slug": "bulleteers-mumbai",
+      "name": "Bulleteers Mumbai",
+      "city": "Mumbai",
+      "memberCount": 2100,
+      "coverImage": "https://images.unsplash.com/photo-1700891591563-5327de496cfd?w=800&q=75&auto=format&fit=crop",
+      "logo": null,
+      "ridingStyle": "Classic",
+      "verified": true,
+      "membershipRequired": false
+    },
+    {
+      "id": "cl_highlanders",
+      "slug": "himalayan-highlanders",
+      "name": "Himalayan Highlanders",
+      "city": "Chandigarh",
+      "memberCount": 750,
+      "coverImage": "https://images.unsplash.com/photo-1701599346665-88d37f67fed0?w=800&q=75&auto=format&fit=crop",
+      "logo": null,
+      "ridingStyle": "Off-road",
+      "verified": false,
+      "membershipRequired": true
     }
   ],
   "meta": {
     "page": 1,
-    "limit": 3,
-    "total": 3
+    "limit": 5,
+    "total": 5
   }
 }

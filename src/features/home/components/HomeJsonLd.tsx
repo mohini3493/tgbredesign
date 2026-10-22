@@ -21,9 +21,18 @@ export async function HomeJsonLd() {
       eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
       image: e.coverImage,
       url: `${siteConfig.url}/events/${e.slug}`,
-      location: { "@type": "Place", name: e.venue, address: { "@type": "PostalAddress", addressLocality: e.city, addressCountry: "IN" } },
+      location: {
+        "@type": "Place",
+        name: e.venue,
+        address: { "@type": "PostalAddress", addressLocality: e.city, addressCountry: "IN" },
+      },
       ...(e.priceINR != null && {
-        offers: { "@type": "Offer", price: e.priceINR, priceCurrency: "INR", url: `${siteConfig.url}${e.ticketUrl}` },
+        offers: {
+          "@type": "Offer",
+          price: e.priceINR,
+          priceCurrency: "INR",
+          url: `${siteConfig.url}${e.ticketUrl}`,
+        },
       }),
     })),
   ];
@@ -31,7 +40,10 @@ export async function HomeJsonLd() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replace(/</g, "\\u003c"),
+        __html: JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replace(
+          /</g,
+          "\\u003c",
+        ),
       }}
     />
   );

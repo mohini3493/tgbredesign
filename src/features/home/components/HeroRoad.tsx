@@ -7,15 +7,19 @@ import { useReducedMotion } from "framer-motion";
  * a rider travelling along it (SVG animateMotion) with a glowing orange trail,
  * and pulsing waypoints. Pure SVG — scales with the viewBox, no JS per frame.
  */
-const ROAD =
-  "M -40 400 C 160 380, 250 270, 410 280 S 620 380, 760 270 S 900 90, 1060 70";
+const ROAD = "M -40 400 C 160 380, 250 270, 410 280 S 620 380, 760 270 S 900 90, 1060 70";
 const DURATION = "11s";
 
 export function HeroRoad({ className }: { className?: string }) {
   const reduce = useReducedMotion();
 
   return (
-    <svg viewBox="0 0 1000 440" preserveAspectRatio="xMaxYMax meet" className={className} aria-hidden>
+    <svg
+      viewBox="0 0 1000 440"
+      preserveAspectRatio="xMaxYMax meet"
+      className={className}
+      aria-hidden
+    >
       <defs>
         <linearGradient id="trail" x1="0" x2="1" y1="0" y2="0">
           <stop offset="0%" stopColor="#ff7723" stopOpacity="0" />
@@ -39,13 +43,41 @@ export function HeroRoad({ className }: { className?: string }) {
       </defs>
 
       {/* Road body + edges */}
-      <path d={ROAD} stroke="rgba(15,26,34,0.45)" strokeWidth="34" fill="none" strokeLinecap="round" />
-      <path d={ROAD} stroke="url(#roadEdge)" strokeWidth="36" fill="none" strokeOpacity="0.5" strokeDasharray="1 0" style={{ mixBlendMode: "screen" }} />
+      <path
+        d={ROAD}
+        stroke="rgba(15,26,34,0.45)"
+        strokeWidth="34"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path
+        d={ROAD}
+        stroke="url(#roadEdge)"
+        strokeWidth="36"
+        fill="none"
+        strokeOpacity="0.5"
+        strokeDasharray="1 0"
+        style={{ mixBlendMode: "screen" }}
+      />
       <path d={ROAD} stroke="rgba(15,26,34,0.55)" strokeWidth="30" fill="none" />
 
       {/* Scrolling centre markings */}
-      <path d={ROAD} stroke="rgba(255,255,255,0.55)" strokeWidth="2.5" fill="none" strokeDasharray="16 18">
-        {!reduce && <animate attributeName="stroke-dashoffset" from="0" to="-68" dur="0.9s" repeatCount="indefinite" />}
+      <path
+        d={ROAD}
+        stroke="rgba(255,255,255,0.55)"
+        strokeWidth="2.5"
+        fill="none"
+        strokeDasharray="16 18"
+      >
+        {!reduce && (
+          <animate
+            attributeName="stroke-dashoffset"
+            from="0"
+            to="-68"
+            dur="0.9s"
+            repeatCount="indefinite"
+          />
+        )}
       </path>
 
       {/* Glowing trail that ends at the rider */}
@@ -61,7 +93,13 @@ export function HeroRoad({ className }: { className?: string }) {
         filter="url(#glow)"
       >
         {!reduce && (
-          <animate attributeName="stroke-dashoffset" from="140" to="-860" dur={DURATION} repeatCount="indefinite" />
+          <animate
+            attributeName="stroke-dashoffset"
+            from="140"
+            to="-860"
+            dur={DURATION}
+            repeatCount="indefinite"
+          />
         )}
       </path>
 
@@ -74,13 +112,41 @@ export function HeroRoad({ className }: { className?: string }) {
           <circle r="7" fill="#4b98bf" stroke="#fff" strokeWidth="2.5" />
           {!reduce && (
             <circle r="7" fill="none" stroke="#4b98bf" strokeWidth="2">
-              <animate attributeName="r" from="7" to="26" dur="2.2s" begin={`${i * 1.1}s`} repeatCount="indefinite" />
-              <animate attributeName="opacity" from="0.9" to="0" dur="2.2s" begin={`${i * 1.1}s`} repeatCount="indefinite" />
+              <animate
+                attributeName="r"
+                from="7"
+                to="26"
+                dur="2.2s"
+                begin={`${i * 1.1}s`}
+                repeatCount="indefinite"
+              />
+              <animate
+                attributeName="opacity"
+                from="0.9"
+                to="0"
+                dur="2.2s"
+                begin={`${i * 1.1}s`}
+                repeatCount="indefinite"
+              />
             </circle>
           )}
           <g transform="translate(-44 -48)">
-            <rect width="88" height="26" rx="13" fill="rgba(15,26,34,0.7)" stroke="rgba(255,255,255,0.18)" />
-            <text x="44" y="17.5" textAnchor="middle" fontSize="12" fontWeight="600" fill="#fff" fontFamily="Inter Variable, sans-serif">
+            <rect
+              width="88"
+              height="26"
+              rx="13"
+              fill="rgba(15,26,34,0.7)"
+              stroke="rgba(255,255,255,0.18)"
+            />
+            <text
+              x="44"
+              y="17.5"
+              textAnchor="middle"
+              fontSize="12"
+              fontWeight="600"
+              fill="#fff"
+              fontFamily="Inter Variable, sans-serif"
+            >
               {w.label}
             </text>
           </g>
@@ -124,7 +190,14 @@ function Rider() {
       {[5, 19].map((cx) => (
         <g key={cx} transform={`translate(${cx} 16.5)`}>
           <path d="M-2.4 0H2.4M0 -2.4V2.4" stroke="#4b98bf" strokeWidth="0.8" strokeLinecap="round">
-            <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="0.5s" repeatCount="indefinite" />
+            <animateTransform
+              attributeName="transform"
+              type="rotate"
+              from="0"
+              to="360"
+              dur="0.5s"
+              repeatCount="indefinite"
+            />
           </path>
         </g>
       ))}

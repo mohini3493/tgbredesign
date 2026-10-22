@@ -20,65 +20,85 @@ export function HeroLiveCards({ mx, my }: { mx: MotionValue<number>; my: MotionV
   }, [reduce]);
 
   const float = (delay: number) =>
-    reduce ? {} : { animate: { y: [0, -10, 0] }, transition: { duration: 6, repeat: Infinity, ease: "easeInOut" as const, delay } };
+    reduce
+      ? {}
+      : {
+          animate: { y: [0, -10, 0] },
+          transition: { duration: 6, repeat: Infinity, ease: "easeInOut" as const, delay },
+        };
 
   return (
     <>
-      <motion.div style={{ x: x1, y: y1 }} className="absolute right-[6%] top-[24%] z-10 hidden xl:block">
+      <motion.div
+        style={{ x: x1, y: y1 }}
+        className="absolute top-[24%] right-[6%] z-10 hidden xl:block"
+      >
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9, delay: 0.9, ease: "easeOut" }}
         >
-          <motion.div {...float(0)} className="w-[260px] rounded-2xl border border-white/15 bg-white/[0.08] p-4 text-white shadow-[0_20px_50px_rgba(0,0,0,0.35)] backdrop-blur-xl">
+          <motion.div
+            {...float(0)}
+            className="w-[260px] rounded-2xl border border-white/15 bg-white/[0.08] p-4 text-white shadow-[0_20px_50px_rgba(0,0,0,0.35)] backdrop-blur-xl"
+          >
             <div className="flex items-center justify-between">
-              <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-white/80">
+              <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-wider text-white/80 uppercase">
                 <span className="relative flex size-2">
-                  <span className="absolute inline-flex size-full animate-ping rounded-full bg-primary opacity-75" />
-                  <span className="relative inline-flex size-2 rounded-full bg-primary" />
+                  <span className="bg-primary absolute inline-flex size-full animate-ping rounded-full opacity-75" />
+                  <span className="bg-primary relative inline-flex size-2 rounded-full" />
                 </span>
                 Live ride
               </span>
-              <Navigation className="size-4 text-secondary" aria-hidden />
+              <Navigation className="text-secondary size-4" aria-hidden />
             </div>
-            <p className="mt-2 font-jakarta text-lg font-semibold">Manali → Leh</p>
+            <p className="font-jakarta mt-2 text-lg font-semibold">Manali → Leh</p>
             <div className="mt-3 grid grid-cols-2 gap-2">
               <div className="rounded-xl bg-white/[0.07] px-3 py-2">
                 <p className="font-jakarta text-xl font-semibold tabular-nums">{km.toFixed(1)}</p>
-                <p className="text-[10px] uppercase tracking-wide text-white/60">km covered</p>
+                <p className="text-[10px] tracking-wide text-white/60 uppercase">km covered</p>
               </div>
               <div className="rounded-xl bg-white/[0.07] px-3 py-2">
                 <p className="font-jakarta text-xl font-semibold">4,920</p>
-                <p className="text-[10px] uppercase tracking-wide text-white/60">m altitude</p>
+                <p className="text-[10px] tracking-wide text-white/60 uppercase">m altitude</p>
               </div>
             </div>
             <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/10">
               <motion.div
-                className="h-full rounded-full bg-linear-to-r from-secondary to-primary"
+                className="from-secondary to-primary h-full rounded-full bg-linear-to-r"
                 initial={{ width: "20%" }}
                 animate={reduce ? { width: "44%" } : { width: ["20%", "78%"] }}
                 transition={{ duration: 11, repeat: Infinity, ease: "linear" }}
               />
             </div>
             <p className="mt-2 flex items-center gap-1.5 text-xs text-white/70">
-              <Users className="size-3.5 text-secondary" aria-hidden /> 7 riders · Touring Tribe India
+              <Users className="text-secondary size-3.5" aria-hidden /> 7 riders · Touring Tribe
+              India
             </p>
           </motion.div>
         </motion.div>
       </motion.div>
 
-      <motion.div style={{ x: x2, y: y2 }} className="absolute right-[6%] top-[52%] z-10 hidden xl:block">
+      <motion.div
+        style={{ x: x2, y: y2 }}
+        className="absolute top-[52%] right-[6%] z-10 hidden xl:block"
+      >
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9, delay: 1.15, ease: "easeOut" }}
         >
-          <motion.div {...float(1.5)} className="flex items-center gap-3 rounded-2xl border border-white/15 bg-white/[0.08] py-2.5 pl-2.5 pr-4 text-white shadow-[0_20px_50px_rgba(0,0,0,0.3)] backdrop-blur-xl">
-            <span className="grid size-10 place-items-center rounded-xl bg-primary">
+          <motion.div
+            {...float(1.5)}
+            className="flex items-center gap-3 rounded-2xl border border-white/15 bg-white/[0.08] py-2.5 pr-4 pl-2.5 text-white shadow-[0_20px_50px_rgba(0,0,0,0.3)] backdrop-blur-xl"
+          >
+            <span className="bg-primary grid size-10 place-items-center rounded-xl">
               <CalendarDays className="size-5" aria-hidden />
             </span>
             <span>
-              <span className="block text-[11px] uppercase tracking-wide text-white/60">Next event</span>
+              <span className="block text-[11px] tracking-wide text-white/60 uppercase">
+                Next event
+              </span>
               <span className="block text-sm font-semibold">India Bike Week · 04 Dec</span>
             </span>
           </motion.div>

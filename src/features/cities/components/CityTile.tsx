@@ -17,7 +17,7 @@ export function CityTile({ city, size = "sm", className }: { city: City; size?: 
         src={city.image}
         alt={`${city.name} landmark`}
         fill
-        sizes={size === "lg" ? "(min-width: 1024px) 50vw, 100vw" : "(min-width: 1024px) 25vw, 50vw"}
+        sizes={size === "lg" ? "(min-width: 1024px) 50vw, 100vw" : "(min-width: 1024px) 17vw, (min-width: 640px) 33vw, 45vw"}
         className="-z-10 object-cover transition-transform duration-700 group-hover:scale-105"
       />
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(15,26,34,0)_30%,rgba(15,26,34,0.9)_100%)]" />

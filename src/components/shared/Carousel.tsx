@@ -7,19 +7,24 @@ import { cn } from "@/lib/utils";
 /**
  * Lightweight, accessible carousel: native scroll-snap (swipe on touch),
  * arrow buttons on desktop, keyboard scrollable region.
+ * Optional `autoplay` (ms) advances one slide at a time, loops back to the
+ * start, pauses on hover/focus/touch and respects reduced motion.
  */
 export function Carousel({
   children,
   label,
   className,
+  autoplay,
 }: {
   children: ReactNode;
   label: string;
   className?: string;
+  autoplay?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(false);
+  const [paused, setPaused] = useState(false);
 
   const update = useCallback(() => {
     const el = ref.current;
@@ -37,6 +42,24 @@ export function Carousel({
     return () => ro.disconnect();
   }, [update]);
 
+  useEffect(() => {
+    if (!autoplay || paused) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = window.setInterval(() => {
+      const el = ref.current;
+      const first = el?.firstElementChild as HTMLElement | null;
+      if (!el || !first) return;
+      const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 4;
+      if (atEnd) {
+        el.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        const gap = parseFloat(getComputedStyle(el).columnGap) || 0;
+        el.scrollBy({ left: first.offsetWidth + gap, behavior: "smooth" });
+      }
+    }, autoplay);
+    return () => window.clearInterval(id);
+  }, [autoplay, paused]);
+
   const scroll = (dir: 1 | -1) => {
     const el = ref.current;
     if (!el) return;
@@ -47,7 +70,15 @@ export function Carousel({
     "absolute top-1/2 z-10 hidden size-11 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-surface text-ink shadow-card transition hover:border-secondary hover:text-secondary disabled:opacity-0 md:flex";
 
   return (
-    <div className={cn("relative", className)}>
+    <div
+      className={cn("relative", className)}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={() => setPaused(false)}
+      onTouchStart={() => setPaused(true)}
+      onTouchEnd={() => setPaused(false)}
+    >
       <div
         ref={ref}
         onScroll={update}

@@ -18,34 +18,37 @@ export function EventCard({ event }: { event: TgbEvent }) {
           src={event.coverImage}
           alt={event.title}
           fill
-          sizes="(min-width: 1024px) 400px, 85vw"
+          sizes="(min-width: 1024px) 17vw, (min-width: 640px) 33vw, 70vw"
           className="object-cover transition-transform duration-700 group-hover:scale-105"
         />
-        <div className="absolute left-4 top-4 flex gap-2">
+        <div className="absolute left-3 top-3 flex flex-wrap gap-1.5">
           {event.category && <Badge tone="glass">{event.category}</Badge>}
           {event.membersOnly && <MembersOnlyBadge />}
         </div>
       </div>
 
-      <div className="relative flex flex-1 flex-col p-5 pt-8">
-        <div className="absolute -top-8 right-5 flex w-16 flex-col items-center rounded-btn bg-white py-2 shadow-card">
-          <span className="font-display text-3xl font-bold leading-none text-primary">{day}</span>
-          <span className="text-[11px] font-bold tracking-widest text-ink">{month}</span>
+      <div className="relative flex flex-1 flex-col p-4 pt-7">
+        <div className="absolute -top-7 right-4 flex w-12 flex-col items-center rounded-btn bg-white py-1.5 shadow-card">
+          <span className="font-display text-2xl font-bold leading-none text-primary">{day}</span>
+          <span className="text-[10px] font-bold tracking-widest text-ink">{month}</span>
         </div>
-        <h3 className="pr-16 font-display text-2xl font-bold uppercase leading-tight">
+        <h3 className="line-clamp-2 pr-12 font-display text-lg font-bold uppercase leading-tight">
           <Link href={`/events/${event.slug}`} className="after:absolute after:inset-0">
             {event.title}
           </Link>
         </h3>
-        <p className="mt-2 flex items-center gap-1.5 text-sm text-body">
-          <MapPin className="size-4 text-secondary" aria-hidden /> {event.venue}, {event.city}
+        <p className="mt-2 flex items-start gap-1.5 text-xs text-body">
+          <MapPin className="mt-px size-3.5 shrink-0 text-secondary" aria-hidden />
+          <span className="line-clamp-2">
+            {event.venue}, {event.city}
+          </span>
         </p>
-        <p className="mt-1 text-sm text-muted">{formatDateRange(event.startDate, event.endDate)}</p>
+        <p className="mt-1 text-xs text-muted">{formatDateRange(event.startDate, event.endDate)}</p>
 
-        <div className="mt-auto flex items-center justify-between gap-3 pt-5">
+        <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-4">
           {event.priceINR != null ? (
-            <p className="text-sm text-muted">
-              From <span className="text-base font-bold text-ink">{formatINR(event.priceINR)}</span>
+            <p className="text-xs text-muted">
+              From <span className="text-sm font-bold text-ink">{formatINR(event.priceINR)}</span>
             </p>
           ) : (
             <span />

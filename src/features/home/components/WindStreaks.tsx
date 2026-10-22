@@ -25,7 +25,13 @@ export function WindStreaks() {
           style={{ top: s.top, width: s.w }}
           initial={{ x: "0vw", opacity: 0 }}
           animate={{ x: ["10vw", "-110vw"], opacity: [0, 1, 0] }}
-          transition={{ duration: s.d, delay: s.delay, repeat: Infinity, repeatDelay: 1.2, ease: "easeIn" }}
+          transition={{
+            duration: s.d,
+            delay: s.delay,
+            repeat: Infinity,
+            repeatDelay: 1.2,
+            ease: "easeIn",
+          }}
         />
       ))}
     </div>
