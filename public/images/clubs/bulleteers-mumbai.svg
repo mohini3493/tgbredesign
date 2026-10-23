@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#f4ead5"/>
+  <!-- Classic tank-badge stripes -->
+  <path d="M8 40 H56" stroke="#ff7723" stroke-width="3"/>
+  <path d="M12 45 H52" stroke="#4b98bf" stroke-width="2"/>
+  <!-- Piston -->
+  <rect x="22" y="14" width="20" height="18" rx="3" fill="#0f1a22"/>
+  <g stroke="#f4ead5" stroke-width="1.6">
+    <line x1="22" y1="18.5" x2="42" y2="18.5"/>
+    <line x1="22" y1="22" x2="42" y2="22"/>
+  </g>
+  <circle cx="32" cy="27" r="2.4" fill="#ff7723"/>
+  <path d="M32 29 L32 50" stroke="#0f1a22" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="32" cy="51" r="4.5" fill="none" stroke="#0f1a22" stroke-width="3"/>
+</svg>

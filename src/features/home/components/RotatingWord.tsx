@@ -23,11 +23,17 @@ export function RotatingWord({
   }, [words.length, interval, reduce]);
 
   return (
-    <span className={`relative inline-grid overflow-hidden align-bottom ${className ?? ""}`}>
-      {/* Invisible longest word reserves width so the line never jumps */}
-      <span className="invisible col-start-1 row-start-1" aria-hidden>
-        {words.reduce((a, b) => (b.length > a.length ? b : a))}
-      </span>
+    // Extra padding (offset by negative margin) widens the clip box so descenders,
+    // glyph overhang and the blur aren't cut off by overflow-hidden on tight line-heights
+    <span
+      className={`relative -my-[0.2em] -mr-[0.15em] inline-grid overflow-hidden py-[0.2em] pr-[0.15em] align-bottom ${className ?? ""}`}
+    >
+      {/* Every word rendered invisibly in the same cell reserves the widest width, so the line never jumps */}
+      {words.map((w) => (
+        <span key={w} className="invisible col-start-1 row-start-1" aria-hidden>
+          {w}
+        </span>
+      ))}
       <AnimatePresence mode="popLayout" initial={false}>
         <motion.span
           key={words[i]}

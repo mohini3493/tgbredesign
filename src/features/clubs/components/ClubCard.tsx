@@ -25,14 +25,20 @@ export function ClubCard({ club }: { club: Club }) {
           alt=""
           fill
           sizes="(min-width: 1024px) 20vw, (min-width: 640px) 33vw, 50vw"
-          className="object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
         />
         {club.membershipRequired && <MembersOnlyBadge className="absolute top-3 right-3" />}
       </div>
       <div className="flex flex-1 flex-col px-4 pb-4 md:px-5 md:pb-5">
         <div className="bg-ink shadow-card relative z-10 -mt-8 mb-3 grid size-16 place-items-center overflow-hidden rounded-full border-4 border-white">
           {club.logo ? (
-            <SmartImage src={club.logo} alt="" width={64} height={64} className="object-cover" />
+            <SmartImage
+              src={club.logo}
+              alt={`${club.name} logo`}
+              fill
+              sizes="64px"
+              className="object-cover"
+            />
           ) : (
             <span className="font-display text-primary text-xl font-bold">
               {initials(club.name)}

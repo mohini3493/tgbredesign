@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#0f1a22"/>
+  <!-- Halo -->
+  <ellipse cx="32" cy="17" rx="10" ry="3.2" fill="none" stroke="#ff7723" stroke-width="2.4"/>
+  <!-- Wings -->
+  <g fill="#fff">
+    <path d="M29 30 C22 24 13 24 6 27 C11 28 14 29 16 31 C12 31 9 32 7 34 C12 34 16 35 18 37 C15 38 13 39 12 41 C18 40 24 39 29 36 Z"/>
+    <path d="M35 30 C42 24 51 24 58 27 C53 28 50 29 48 31 C52 31 55 32 57 34 C52 34 48 35 46 37 C49 38 51 39 52 41 C46 40 40 39 35 36 Z"/>
+  </g>
+  <!-- Cruiser tank / shield -->
+  <path d="M32 24 L38 27 L38 36 C38 41 35 44 32 46 C29 44 26 41 26 36 L26 27 Z" fill="#ff7723"/>
+  <path d="M32 29 L32 41" stroke="#0f1a22" stroke-width="2" stroke-linecap="round"/>
+</svg>

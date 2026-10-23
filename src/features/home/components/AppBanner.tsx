@@ -1,32 +1,25 @@
 import { QrCode } from "./QrCode";
+import { SmartImage } from "@/components/shared/SmartImage";
 import { StoreBadges } from "@/components/shared/StoreBadges";
 import { Container } from "@/components/layout/Container";
-import { siteConfig } from "@/config/site";
+import { appBannerImage, siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
 import { Bike, CalendarDays, MessageCircle, Navigation, Users } from "lucide-react";
 
-export function AppBanner() {
+export function AppBanner({ className }: { className?: string }) {
   return (
-    <section aria-labelledby="app-title" className="py-12 md:py-20">
+    <section aria-labelledby="app-title" className={cn("py-12 md:py-20", className)}>
       <Container>
         <div className="bg-deep relative isolate overflow-hidden rounded-[24px] px-6 py-12 md:px-12 lg:px-16 lg:py-16">
-          {/* Mountain silhouette */}
-          <svg
-            viewBox="0 0 1200 300"
-            preserveAspectRatio="none"
-            className="absolute inset-x-0 bottom-0 -z-10 h-2/3 w-full"
-            aria-hidden
-          >
-            <path
-              d="M0 300V180l120-70 90 50 140-120 130 110 90-60 160 120 110-80 150 90 110-60 100 50v110Z"
-              fill="#4b98bf"
-              opacity="0.12"
-            />
-            <path
-              d="M0 300V230l160-60 120 40 160-90 140 90 120-40 170 70 130-50 200 60v80Z"
-              fill="#4b98bf"
-              opacity="0.1"
-            />
-          </svg>
+          {/* Dark mountain backdrop, tinted toward the brand navy so the copy stays readable */}
+          <SmartImage
+            src={appBannerImage}
+            alt=""
+            fill
+            sizes="(min-width: 1620px) 1560px, 100vw"
+            className="-z-20 object-cover object-[50%_40%]"
+          />
+          <div className="from-deep/50 via-deep/15 to-deep/35 absolute inset-0 -z-10 bg-linear-to-r" />
           <div className="bg-primary/15 absolute -top-24 -right-24 -z-10 size-80 rounded-full blur-3xl" />
 
           <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.1fr]">

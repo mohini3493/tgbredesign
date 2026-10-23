@@ -76,45 +76,61 @@ export const riderServices = [
   {
     key: "garage",
     title: "Garage",
-    description: "Bikes, service history & maintenance reminders.",
+    description: "Bikes, services & maintenance",
     href: "/garage",
-    image: "https://images.unsplash.com/photo-1558981000-f294a6ed32b2?w=800&q=75&auto=format&fit=crop",
+    image: "/images/services/garage.png",
   },
   {
     key: "rentals",
     title: "Rentals",
-    description: "Rent a verified bike in any city, by the day or week.",
+    description: "Rent a bike in any city",
     href: "/marketplace/rentals",
-    image: "https://images.unsplash.com/photo-1611004061856-ccc3cbe944b2?w=800&q=75&auto=format&fit=crop",
+    image: "/images/services/rentals.png",
   },
   {
     key: "accessories",
     title: "Accessories",
-    description: "Helmets, jackets, luggage and touring gear.",
+    description: "Helmets, jackets, luggage & more",
     href: "/marketplace/accessories",
-    image: "https://images.unsplash.com/photo-1590506995460-d0d9892b54da?w=800&q=75&auto=format&fit=crop",
+    image: "/images/services/accessories.png",
   },
   {
     key: "schools",
     title: "Riding Schools",
-    description: "Learn to ride, or level up off-road, with certified coaches.",
+    description: "Learn to ride from experts",
     href: "/riding-schools",
-    image: "https://images.unsplash.com/photo-1606907568152-58fcb0a0a4e5?w=800&q=75&auto=format&fit=crop",
+    image: "/images/services/riding-schools.png",
   },
   {
     key: "blog",
     title: "Blogs & Guides",
-    description: "Ride reports, route guides and gear reviews.",
+    description: "Tips, stories & travel guides",
     href: "/blog",
-    image: "https://images.unsplash.com/photo-1575312363468-c8455fb38a76?w=800&q=75&auto=format&fit=crop",
+    image: "/images/services/blogs-guides.png",
   },
 ] as const;
 
 export const valueProps = [
-  { key: "community", title: "Amazing community", description: "Real riders, real connections — in 25+ cities." },
-  { key: "routes", title: "Best routes", description: "Curated by riders, with season, terrain and stops." },
-  { key: "marketplace", title: "Trusted marketplace", description: "Verified rentals, gear and service partners." },
-  { key: "allinone", title: "All in one place", description: "Plan, ride, track and share — one app." },
+  {
+    key: "community",
+    title: "Amazing community",
+    description: "Real riders, real connections — in 25+ cities.",
+  },
+  {
+    key: "routes",
+    title: "Best routes",
+    description: "Curated by riders, with season, terrain and stops.",
+  },
+  {
+    key: "marketplace",
+    title: "Trusted marketplace",
+    description: "Verified rentals, gear and service partners.",
+  },
+  {
+    key: "allinone",
+    title: "All in one place",
+    description: "Plan, ride, track and share — one app.",
+  },
 ] as const;
 
 /**
@@ -124,4 +140,16 @@ export const valueProps = [
 export const heroVideo: string | null = null;
 
 export const heroImage =
-  "https://images.unsplash.com/photo-1781950879206-29092ae8a44c?w=2400&q=80&auto=format&fit=crop";
+  "https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?w=2400&q=80&auto=format&fit=crop";
+
+/** Backdrop for the "Take the ride with you" app banner */
+export const appBannerImage =
+  "https://images.unsplash.com/photo-1765825365130-52e276bca060?w=2000&q=75&auto=format&fit=crop";
+
+/** Rider faces shown in the hero "Trusted by" pill */
+export const heroTrustAvatars = [
+  "https://images.unsplash.com/photo-1757744705465-ea08b0ddc38a?w=96&h=96&q=75&auto=format&fit=crop&crop=faces",
+  "https://images.unsplash.com/photo-1789500381106-ba13068a6520?w=96&h=96&q=75&auto=format&fit=crop&crop=faces",
+  "https://images.unsplash.com/photo-1741363863033-2d68f0bd9fde?w=96&h=96&q=75&auto=format&fit=crop&crop=faces",
+  "https://images.unsplash.com/photo-1658985416866-d059ee62dafd?w=96&h=96&q=75&auto=format&fit=crop&crop=faces",
+];

@@ -1,24 +1,20 @@
 import Link from "next/link";
-import { footerColumns, siteConfig, socialLinks } from "@/config/site";
-import { NewsletterForm } from "@/features/newsletter/NewsletterForm";
+import { footerColumns, socialLinks } from "@/config/site";
 import { socialIconMap } from "@/components/shared/BrandIcons";
 import { Container } from "./Container";
 import { Logo } from "./Logo";
 
 export function Footer() {
   return (
-    <footer className="bg-deep pb-24 text-deep-text md:pb-0">
-      <Container className="grid grid-cols-1 gap-12 py-16 lg:grid-cols-12">
-        <div className="lg:col-span-4">
-          {/* Logo sits on a white chip so its original colors stay true on the dark footer */}
-          <div className="inline-flex rounded-btn bg-white px-3 py-2">
-            <Logo />
-          </div>
-          <p className="mt-5 max-w-xs text-sm leading-relaxed">
-            India&apos;s largest motorcycling community. Discover routes, riders, clubs and events — and
-            ride together.
+    <footer className="bg-page text-body border-border border-t pb-24 md:pb-0">
+      <Container className="grid grid-cols-1 gap-10 pt-12 pb-8 sm:grid-cols-2 lg:grid-cols-[1.4fr_repeat(4,1fr)] lg:gap-8 lg:pt-14">
+        <div className="sm:col-span-2 lg:col-span-1">
+          <Logo className="[&_img]:h-12 md:[&_img]:h-14" />
+          <p className="mt-5 max-w-[330px] text-sm leading-relaxed">
+            India&apos;s largest motorcycling community. Discover routes, riders, clubs and events —
+            and ride together.
           </p>
-          <ul className="mt-6 flex gap-2" aria-label="Social media">
+          <ul className="mt-5 -ml-2 flex gap-1" aria-label="Social media">
             {socialLinks.map((s) => {
               const Icon = socialIconMap[s.icon];
               return (
@@ -28,9 +24,9 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.label}
-                    className="grid size-11 place-items-center rounded-full border border-white/15 transition-colors hover:border-primary hover:text-primary"
+                    className="text-ink hover:text-primary grid size-9 place-items-center rounded-full transition-colors hover:bg-white"
                   >
-                    <Icon className="size-4.5" />
+                    <Icon className="size-4" />
                   </a>
                 </li>
               );
@@ -38,38 +34,35 @@ export function Footer() {
           </ul>
         </div>
 
-        <nav aria-label="Footer" className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-8">
-          {footerColumns.map((col) => (
-            <div key={col.title}>
-              <h3 className="text-xs font-bold uppercase tracking-[0.16em] text-white">{col.title}</h3>
-              <ul className="mt-4 space-y-3">
-                {col.links.map((l) => (
-                  <li key={l.href}>
-                    <Link href={l.href} className="text-sm transition-colors hover:text-primary">
-                      {l.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </nav>
-
-        <div className="border-t border-white/10 pt-10 lg:col-span-12">
-          <NewsletterForm />
-        </div>
+        {footerColumns.map((col) => (
+          <nav key={col.title} aria-label={col.title}>
+            <h3 className="text-ink/70 text-xs font-medium tracking-wider uppercase">
+              {col.title}
+            </h3>
+            <ul className="mt-5 space-y-3.5">
+              {col.links.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="hover:text-primary text-sm transition-colors">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        ))}
       </Container>
 
-      <div className="border-t border-white/10">
-        <Container className="flex flex-col gap-3 py-6 text-xs sm:flex-row sm:items-center sm:justify-between">
-          <p>© {COPYRIGHT_YEAR} The Good Biker. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link href="/terms" className="hover:text-primary">Terms of Use</Link>
-            <Link href="/privacy" className="hover:text-primary">Privacy Policy</Link>
-            <span className="text-deep-text/60">{siteConfig.tagline}</span>
-          </div>
-        </Container>
-      </div>
+      <Container className="flex flex-col gap-3 pb-8 text-sm sm:flex-row sm:items-center sm:justify-between">
+        <p>© {COPYRIGHT_YEAR} The Good Biker. All rights reserved.</p>
+        <div className="flex gap-10">
+          <Link href="/terms" className="hover:text-primary transition-colors">
+            Terms of Use
+          </Link>
+          <Link href="/privacy" className="hover:text-primary transition-colors">
+            Privacy Policy
+          </Link>
+        </div>
+      </Container>
     </footer>
   );
 }

@@ -7,7 +7,11 @@ export const clubSchema = z.object({
   city: z.string(),
   memberCount: z.number(),
   coverImage: z.string().url(),
-  logo: z.string().url().nullable(),
+  // Absolute URL (API/CDN) or a site-relative path like /images/clubs/x.svg
+  logo: z
+    .string()
+    .regex(/^(https?:\/\/|\/)/)
+    .nullable(),
   ridingStyle: z.string().optional(),
   verified: z.boolean().default(false),
   membershipRequired: z.boolean().default(false),

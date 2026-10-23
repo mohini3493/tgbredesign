@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
 import type { MouseEvent } from "react";
-import { heroImage, heroVideo, siteConfig, socialLinks } from "@/config/site";
+import { heroImage, heroTrustAvatars, heroVideo, siteConfig, socialLinks } from "@/config/site";
 import { Container } from "@/components/layout/Container";
 import { SmartImage } from "@/components/shared/SmartImage";
 import { MotorcycleIcon } from "@/components/shared/MotorcycleIcon";
@@ -55,8 +55,10 @@ export function Hero() {
     >
       {/* Background with slow Ken Burns drift + cursor parallax */}
       <motion.div style={{ x: bgX, y: bgY }} className="absolute -inset-8">
+        {/* Zoom anchored at the rider so the Ken Burns drift doesn't push them toward the bottom */}
         <motion.div
           className="absolute inset-0"
+          style={{ originX: 0.5, originY: 0.7 }}
           initial={{ scale: 1.12 }}
           animate={reduce ? { scale: 1.05 } : { scale: [1.05, 1.16], x: [0, -30], y: [0, -12] }}
           transition={
@@ -79,22 +81,21 @@ export function Hero() {
           ) : (
             <SmartImage
               src={heroImage}
-              alt="Motorcycle rider crossing a high-altitude Ladakh plateau"
+              alt="Motorcycle rider on the open Leh–Manali highway below snow-capped Himalayan peaks"
               fill
               priority
               sizes="100vw"
-              className="object-cover object-[60%_55%]"
+              className="object-cover object-[50%_100%]"
             />
           )}
         </motion.div>
       </motion.div>
 
-      {/* Light overlays (kept subtle so the image stays vivid) */}
-      <div className="absolute inset-0 bg-black/10" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.45)_0%,transparent_22%,transparent_60%,rgba(0,0,0,0.45)_100%)]" />
-      {/* Strong left fade keeps the headline readable; extra tint on small screens where text sits over the rider */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(15,26,34,0.92)_0%,rgba(15,26,34,0.75)_30%,rgba(15,26,34,0.3)_52%,transparent_68%)]" />
-      <div className="bg-deep/45 absolute inset-0 md:hidden" />
+      {/* Light overlays: the photo is bright, so keep the shading minimal */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.3)_0%,transparent_18%,transparent_70%,rgba(0,0,0,0.3)_100%)]" />
+      {/* Soft left fade keeps the white headline readable; extra tint on small screens where text sits over the photo */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(15,26,34,0.72)_0%,rgba(15,26,34,0.5)_30%,rgba(15,26,34,0.12)_50%,transparent_62%)]" />
+      <div className="bg-deep/35 absolute inset-0 md:hidden" />
       {/* Brand glows */}
       <motion.div
         style={{ x: glowX }}
@@ -123,25 +124,23 @@ export function Hero() {
 
       <HeroLiveCards mx={mx} my={my} />
 
-      <Container className="relative z-10 flex h-full flex-col justify-start pt-[24vh]">
+      <Container className="relative z-10 flex h-full flex-col justify-start pt-[22vh]">
         {/* Trust pill */}
         <motion.div
           {...enter(0.1, 14)}
-          className="inline-flex w-fit items-center gap-2.5 rounded-full border border-white/15 bg-white/[0.06] py-1.5 pr-4 pl-1.5 backdrop-blur-md"
+          className="inline-flex w-fit items-center gap-3 rounded-full border border-white/15 bg-white/[0.06] py-2 pr-5 pl-2 backdrop-blur-md"
         >
-          <div className="flex">
-            {[
-              "from-primary to-secondary",
-              "from-secondary to-primary",
-              "from-primary to-secondary",
-            ].map((g, i) => (
+          <div className="flex" aria-hidden>
+            {heroTrustAvatars.map((src, i) => (
               <span
-                key={i}
-                className={`border-deep/90 size-[22px] rounded-full border-2 bg-linear-135 ${g} ${i > 0 ? "-ml-2" : ""}`}
-              />
+                key={src}
+                className={`bg-secondary-tint relative size-8 overflow-hidden rounded-full border-2 border-white ${i > 0 ? "-ml-2.5" : ""}`}
+              >
+                <SmartImage src={src} alt="" fill sizes="32px" className="object-cover" />
+              </span>
             ))}
           </div>
-          <span className="text-[12.5px] text-white/75">
+          <span className="text-sm text-white/75 md:text-[15px]">
             Trusted by <strong className="font-semibold text-white">10,000+ riders</strong> across
             India
           </span>
@@ -150,7 +149,7 @@ export function Hero() {
         <motion.h1
           id="hero-title"
           {...enter(0.25, 22)}
-          className="font-jakarta mt-[22px] max-w-[620px] text-[clamp(2.4rem,4.6vw,4.1rem)] leading-[1.08] font-medium tracking-[-0.02em] text-white"
+          className="font-jakarta mt-6 max-w-[860px] text-[clamp(2.75rem,6.2vw,5.75rem)] leading-[1.05] font-medium tracking-[-0.02em] text-white"
         >
           Ride Further.
           <br />
@@ -159,17 +158,17 @@ export function Hero() {
 
         <motion.p
           {...enter(0.42)}
-          className="mt-4 max-w-[380px] text-[15px] leading-relaxed text-white/70"
+          className="mt-5 max-w-[540px] text-base leading-relaxed text-white/75 md:text-xl"
         >
           Find riders, discover routes and join clubs — India&apos;s largest motorcycling ecosystem,
           in one app.
         </motion.p>
 
-        <motion.div {...enter(0.58)} className="mt-[30px] flex items-center gap-3.5">
+        <motion.div {...enter(0.58)} className="mt-9 flex items-center gap-4">
           <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
             <Link
               href={siteConfig.appLinks.download}
-              className="bg-ink hover:border-primary inline-flex items-center rounded-full border border-white/15 px-[26px] py-3.5 text-sm font-semibold text-white transition-colors"
+              className="bg-ink hover:border-primary inline-flex items-center rounded-full border border-white/15 px-8 py-4 text-base font-semibold text-white transition-colors"
             >
               Download the App
             </Link>
@@ -182,14 +181,14 @@ export function Hero() {
               href="/rides"
               aria-label="Explore rides"
               title="Explore rides"
-              className="hover:border-primary hover:bg-primary grid size-12 place-items-center rounded-full border border-white/25 bg-white/12 text-white backdrop-blur-sm transition-colors"
+              className="hover:border-primary hover:bg-primary grid size-14 place-items-center rounded-full border border-white/25 bg-white/12 text-white backdrop-blur-sm transition-colors"
             >
               <motion.span
                 className="inline-flex"
                 animate={reduce ? undefined : { x: [0, 2, 0, -1, 0], rotate: [0, -2, 0, 1, 0] }}
                 transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
               >
-                <MotorcycleIcon className="size-7" />
+                <MotorcycleIcon className="size-8" />
               </motion.span>
             </Link>
           </motion.div>

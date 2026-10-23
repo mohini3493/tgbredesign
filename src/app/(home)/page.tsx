@@ -98,6 +98,8 @@ export default function HomePage() {
         </SectionBoundary>
       </Section>
 
+      <AppBanner className="pt-0 md:pt-0" />
+
       <Section aria-labelledby="services-title" className="bg-white">
         <SectionHeader
           id="services-title"
@@ -108,9 +110,7 @@ export default function HomePage() {
         <RiderServices />
       </Section>
 
-      <AppBanner />
-
-      <Section aria-labelledby="why-title" className="pt-0 md:pt-0">
+      <Section aria-labelledby="why-title">
         <SectionHeader id="why-title" eyebrow="Why TGB" title="Why riders love TGB" />
         <ValueProps />
       </Section>

@@ -63,7 +63,7 @@ export function RidersNearYou() {
         {isPending ? (
           <div className={grid}>
             {Array.from({ length: 6 }, (_, i) => (
-              <Skeleton key={i} className="h-64" />
+              <Skeleton key={i} className="h-28" />
             ))}
           </div>
         ) : isError ? (

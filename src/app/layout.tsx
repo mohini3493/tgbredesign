@@ -21,7 +21,6 @@ export const metadata: Metadata = {
     locale: "en_IN",
   },
   twitter: { card: "summary_large_image", title: "TGB – The Good Biker", description: siteConfig.description },
-  icons: { icon: "/favicon.ico" },
 };
 
 export const viewport: Viewport = {

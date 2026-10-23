@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#2f6f8f"/>
+  <!-- Snow peak -->
+  <path d="M6 44 L26 16 L36 30 L42 22 L58 44 Z" fill="#fff"/>
+  <path d="M26 16 L36 30 L31 27 L27 31 L23 26 L19 30 Z" fill="#cfe4ef"/>
+  <!-- Knobby off-road tyre arc -->
+  <path d="M10 56 A22 22 0 0 1 54 56" fill="none" stroke="#0f1a22" stroke-width="7"/>
+  <path d="M10 56 A22 22 0 0 1 54 56" fill="none" stroke="#ff7723" stroke-width="7" stroke-dasharray="3.5 3.5"/>
+</svg>
