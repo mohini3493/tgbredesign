@@ -19,7 +19,7 @@ export function ValueProps() {
         const Icon = icons[v.key];
         return (
           <li key={v.key} className="rounded-card border-border border bg-white p-6">
-            <span className="bg-secondary-tint text-secondary grid size-12 place-items-center rounded-full">
+            <span className="bg-primary-tint text-primary grid size-12 place-items-center rounded-full">
               <Icon className="size-6" strokeWidth={1.75} aria-hidden />
             </span>
             <h3 className="mt-4 text-base font-bold">{v.title}</h3>

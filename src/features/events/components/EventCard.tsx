@@ -29,7 +29,7 @@ export function EventCard({ event }: { event: TgbEvent }) {
 
       <div className="relative flex flex-1 flex-col p-4 pt-7">
         <div className="absolute -top-7 right-4 flex w-12 flex-col items-center rounded-btn bg-white py-1.5 shadow-card">
-          <span className="font-display text-2xl font-bold leading-none text-primary">{day}</span>
+          <span className="font-display text-2xl font-bold leading-none text-secondary">{day}</span>
           <span className="text-[10px] font-bold tracking-widest text-ink">{month}</span>
         </div>
         <h3 className="line-clamp-2 pr-12 font-display text-lg font-bold uppercase leading-tight">
@@ -38,7 +38,7 @@ export function EventCard({ event }: { event: TgbEvent }) {
           </Link>
         </h3>
         <p className="mt-2 flex items-start gap-1.5 text-xs text-body">
-          <MapPin className="mt-px size-3.5 shrink-0 text-secondary" aria-hidden />
+          <MapPin className="mt-px size-3.5 shrink-0 text-primary" aria-hidden />
           <span className="line-clamp-2">
             {event.venue}, {event.city}
           </span>

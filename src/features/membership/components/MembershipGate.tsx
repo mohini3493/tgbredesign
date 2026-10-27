@@ -20,11 +20,11 @@ export function MembershipGate({ tier, currentTier = "free", children, fallback 
   if (!features.membership || hasTier(currentTier, tier)) return <>{children}</>;
   return (
     fallback ?? (
-      <div className="rounded-card border border-border bg-primary-tint p-6 text-center">
+      <div className="rounded-card border border-border bg-secondary-tint p-6 text-center">
         <Lock className="mx-auto size-6 text-primary" aria-hidden />
         <p className="mt-2 font-semibold text-ink">Members only</p>
         <p className="mt-1 text-sm text-body">Upgrade to unlock this.</p>
-        <Link href="/membership" className="mt-3 inline-block text-sm font-semibold text-primary">
+        <Link href="/membership" className="mt-3 inline-block text-sm font-semibold text-secondary">
           See membership plans →
         </Link>
       </div>

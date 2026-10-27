@@ -36,9 +36,9 @@ function StartClubCta() {
   return (
     <Link
       href="/clubs/new"
-      className="group rounded-card border-secondary/20 bg-secondary-tint hover:border-secondary mt-4 flex items-center gap-4 border p-5 transition-colors md:mt-5"
+      className="group rounded-card border-secondary/20 bg-secondary-tint hover:border-primary mt-4 flex items-center gap-4 border p-5 transition-colors md:mt-5"
     >
-      <span className="bg-secondary grid size-12 shrink-0 place-items-center rounded-full text-white">
+      <span className="bg-primary grid size-12 shrink-0 place-items-center rounded-full text-white">
         <Flag className="size-5" aria-hidden />
       </span>
       <span className="flex-1">
@@ -48,7 +48,7 @@ function StartClubCta() {
         </span>
       </span>
       <ArrowRight
-        className="text-secondary size-5 shrink-0 transition-transform group-hover:translate-x-1"
+        className="text-primary size-5 shrink-0 transition-transform group-hover:translate-x-1"
         aria-hidden
       />
     </Link>

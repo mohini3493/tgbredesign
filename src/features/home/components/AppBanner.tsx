@@ -20,7 +20,7 @@ export function AppBanner({ className }: { className?: string }) {
             className="-z-20 object-cover object-[50%_40%]"
           />
           <div className="from-deep/50 via-deep/15 to-deep/35 absolute inset-0 -z-10 bg-linear-to-r" />
-          <div className="bg-primary/15 absolute -top-24 -right-24 -z-10 size-80 rounded-full blur-3xl" />
+          <div className="bg-secondary/15 absolute -top-24 -right-24 -z-10 size-80 rounded-full blur-3xl" />
 
           <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.1fr]">
             <PhoneMockups />
@@ -143,7 +143,7 @@ function PhoneMockups() {
           <p className="font-display text-ink text-xl font-bold uppercase">Club feed</p>
           <div className="mt-3 space-y-2.5">
             {[
-              { n: "GearUpWheels", t: "Sunday ride to Coorg — 18 going", c: "bg-primary" },
+              { n: "GearUpWheels", t: "Sunday ride to Coorg — 18 going", c: "bg-secondary" },
               { n: "Touring Tribe", t: "Spiti expedition slots open", c: "bg-secondary" },
               { n: "Sin City Saints", t: "Night ride · Fri 10 PM", c: "bg-ink" },
             ].map((p) => (

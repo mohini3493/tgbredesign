@@ -68,7 +68,7 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
             className={cn(buttonVariants({ variant: "ghost", size: "icon" }), iconTone(transparent), "relative hidden sm:inline-flex")}
           >
             <Bell className="!size-5" />
-            <span className={cn("absolute right-2.5 top-2.5 size-2 rounded-full bg-primary ring-2", transparent ? "ring-transparent" : "ring-white")} />
+            <span className={cn("absolute right-2.5 top-2.5 size-2 rounded-full bg-secondary ring-2", transparent ? "ring-transparent" : "ring-white")} />
           </Link>
           {features.shop && <CartButton />}
           {features.auth && (
@@ -81,7 +81,7 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
             size="sm"
             className={cn(
               "ml-2 hidden md:inline-flex",
-              transparent && "rounded-full bg-white text-ink shadow-[0_4px_18px_rgba(0,0,0,0.25)] hover:bg-white hover:text-primary",
+              transparent && "rounded-full shadow-[0_4px_18px_rgba(0,0,0,0.25)]",
             )}
           >
             Download App <Download />
@@ -124,10 +124,10 @@ function CartButton() {
   const items = useCart((s) => s.items);
   const count = cartCount(items);
   return (
-    <Link href="/shop/cart" aria-label={`Cart, ${count} items`} className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "relative")}>
+    <Link href="/shop/cart" aria-label={`Cart, ${count} items`} className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "relative text-primary")}>
       <ShoppingBag className="!size-5" />
       {count > 0 && (
-        <span className="absolute right-1 top-1 grid size-4.5 place-items-center rounded-full bg-primary text-[10px] font-bold text-white">
+        <span className="absolute right-1 top-1 grid size-4.5 place-items-center rounded-full bg-secondary text-[10px] font-bold text-white">
           {count}
         </span>
       )}
@@ -156,12 +156,12 @@ function NavLinks({ variant, pathname, onNavigate }: NavLinksProps) {
           variant === "desktop"
             ? "relative rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:text-primary"
             : "border-b border-border py-4 font-display text-2xl font-bold uppercase",
-          active ? "text-primary" : "text-ink group-data-[transparent]/header:text-white/85 group-data-[transparent]/header:hover:text-white",
+          active ? "text-secondary" : "text-ink group-data-[transparent]/header:text-white/85 group-data-[transparent]/header:hover:text-white",
         )}
       >
         {item.label}
         {variant === "desktop" && active && (
-          <span className="absolute inset-x-3 -bottom-[26px] h-0.5 rounded-full bg-primary" />
+          <span className="absolute inset-x-3 -bottom-[26px] h-0.5 rounded-full bg-secondary" />
         )}
       </Link>
     );
@@ -169,5 +169,5 @@ function NavLinks({ variant, pathname, onNavigate }: NavLinksProps) {
 }
 
 function iconTone(transparent: boolean) {
-  return transparent ? "text-white hover:bg-white/10" : undefined;
+  return cn("text-primary", transparent && "hover:bg-white/10");
 }

@@ -46,9 +46,9 @@ export function RidersNearYou() {
             type="button"
             onClick={locate}
             disabled={geoState === "locating"}
-            className="text-secondary hover:text-secondary-hover inline-flex items-center gap-1.5 text-sm font-semibold disabled:opacity-60"
+            className="text-secondary hover:text-primary inline-flex items-center gap-1.5 text-sm font-semibold disabled:opacity-60"
           >
-            <LocateFixed className="size-4" aria-hidden />
+            <LocateFixed className="text-primary size-4" aria-hidden />
             {geoState === "locating" ? "Locating…" : "Use my location"}
           </button>
         )}
@@ -74,7 +74,7 @@ export function RidersNearYou() {
               onClick={() => refetch()}
               className="text-secondary mt-2 inline-flex items-center gap-1.5 text-sm font-semibold"
             >
-              <RotateCw className="size-4" aria-hidden /> Try again
+              <RotateCw className="text-primary size-4" aria-hidden /> Try again
             </button>
           </div>
         ) : data.length === 0 ? (
@@ -92,9 +92,9 @@ export function RidersNearYou() {
 
       <Link
         href="/riders"
-        className="text-secondary hover:text-secondary-hover mt-4 inline-flex items-center gap-1.5 text-sm font-semibold"
+        className="text-secondary hover:text-primary mt-4 inline-flex items-center gap-1.5 text-sm font-semibold"
       >
-        View all riders <ArrowRight className="size-4" aria-hidden />
+        View all riders <ArrowRight className="text-primary size-4" aria-hidden />
       </Link>
     </div>
   );

@@ -168,14 +168,14 @@ export function Hero() {
           <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
             <Link
               href={siteConfig.appLinks.download}
-              className="bg-ink hover:border-primary inline-flex items-center rounded-full border border-white/15 px-8 py-4 text-base font-semibold text-white transition-colors"
+              className="bg-secondary hover:bg-primary hover:border-primary inline-flex items-center rounded-full border border-white/15 px-8 py-4 text-base font-semibold text-white transition-colors"
             >
               Download the App
             </Link>
           </motion.div>
           <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.93 }} className="relative">
             {!reduce && (
-              <span className="border-primary/70 pointer-events-none absolute inset-0 animate-ping rounded-full border [animation-duration:2.4s]" />
+              <span className="border-secondary/70 pointer-events-none absolute inset-0 animate-ping rounded-full border [animation-duration:2.4s]" />
             )}
             <Link
               href="/rides"
@@ -213,7 +213,7 @@ export function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="hover:border-primary hover:text-primary grid size-[34px] place-items-center rounded-full border border-white/20 text-white/75 transition-colors"
+                  className="hover:border-primary text-primary grid size-[34px] place-items-center rounded-full border border-white/20 transition-colors"
                 >
                   <Icon className="size-3.5" />
                 </a>

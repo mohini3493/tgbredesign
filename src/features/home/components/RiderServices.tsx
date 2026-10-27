@@ -41,7 +41,7 @@ export function RiderServices() {
               <span className="text-secondary mt-4 inline-flex items-center gap-1.5 text-sm font-semibold">
                 Explore
                 <ArrowRight
-                  className="size-4 transition-transform group-hover:translate-x-0.5"
+                  className="text-primary size-4 transition-transform group-hover:translate-x-0.5"
                   aria-hidden
                 />
               </span>

@@ -26,10 +26,10 @@ export function SectionHeader({ eyebrow, title, description, action, className, 
       {action && (
         <Link
           href={action.href}
-          className="group inline-flex items-center gap-1.5 text-sm font-semibold text-secondary hover:text-secondary-hover"
+          className="group inline-flex items-center gap-1.5 text-sm font-semibold text-secondary hover:text-primary"
         >
           {action.label}
-          <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+          <ArrowRight className="size-4 text-primary transition-transform group-hover:translate-x-0.5" aria-hidden />
         </Link>
       )}
     </div>

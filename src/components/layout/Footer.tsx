@@ -24,7 +24,7 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.label}
-                    className="text-ink hover:text-primary grid size-9 place-items-center rounded-full transition-colors hover:bg-white"
+                    className="text-primary grid size-9 place-items-center rounded-full transition-colors hover:bg-white"
                   >
                     <Icon className="size-4" />
                   </a>

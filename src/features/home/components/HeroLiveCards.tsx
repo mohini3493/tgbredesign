@@ -45,12 +45,12 @@ export function HeroLiveCards({ mx, my }: { mx: MotionValue<number>; my: MotionV
             <div className="flex items-center justify-between">
               <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-wider text-white/80 uppercase">
                 <span className="relative flex size-2">
-                  <span className="bg-primary absolute inline-flex size-full animate-ping rounded-full opacity-75" />
-                  <span className="bg-primary relative inline-flex size-2 rounded-full" />
+                  <span className="bg-secondary absolute inline-flex size-full animate-ping rounded-full opacity-75" />
+                  <span className="bg-secondary relative inline-flex size-2 rounded-full" />
                 </span>
                 Live ride
               </span>
-              <Navigation className="text-secondary size-4" aria-hidden />
+              <Navigation className="text-primary size-4" aria-hidden />
             </div>
             <p className="font-jakarta mt-2 text-lg font-semibold">Manali → Leh</p>
             <div className="mt-3 grid grid-cols-2 gap-2">
@@ -72,7 +72,7 @@ export function HeroLiveCards({ mx, my }: { mx: MotionValue<number>; my: MotionV
               />
             </div>
             <p className="mt-2 flex items-center gap-1.5 text-xs text-white/70">
-              <Users className="text-secondary size-3.5" aria-hidden /> 7 riders · Touring Tribe
+              <Users className="text-primary size-3.5" aria-hidden /> 7 riders · Touring Tribe
               India
             </p>
           </motion.div>

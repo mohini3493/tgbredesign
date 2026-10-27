@@ -15,9 +15,9 @@ function SectionErrorFallback(props: { title: string }, { retry }: ErrorInfo) {
       <button
         type="button"
         onClick={() => retry()}
-        className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-secondary hover:text-secondary-hover"
+        className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-secondary hover:text-primary"
       >
-        <RotateCw className="size-4" aria-hidden /> Try again
+        <RotateCw className="size-4 text-primary" aria-hidden /> Try again
       </button>
     </div>
   );

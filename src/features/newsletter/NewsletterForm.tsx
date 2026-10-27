@@ -29,7 +29,7 @@ export function NewsletterForm() {
         <button
           type="submit"
           disabled={pending}
-          className="inline-flex h-12 items-center gap-2 rounded-btn bg-primary px-5 text-sm font-semibold text-white transition-colors hover:bg-primary-hover disabled:opacity-60"
+          className="inline-flex h-12 items-center gap-2 rounded-btn bg-secondary px-5 text-sm font-semibold text-white transition-colors hover:bg-primary disabled:opacity-60"
         >
           {pending ? "…" : "Subscribe"} <ArrowRight className="size-4" aria-hidden />
         </button>
@@ -37,7 +37,7 @@ export function NewsletterForm() {
       <p
         id="newsletter-status"
         role="status"
-        className={`mt-2 min-h-5 text-sm ${state.status === "error" ? "text-primary" : "text-deep-text"}`}
+        className={`mt-2 min-h-5 text-sm ${state.status === "error" ? "text-secondary" : "text-deep-text"}`}
       >
         {state.message}
       </p>

@@ -67,7 +67,7 @@ export function Carousel({
   };
 
   const arrow =
-    "absolute top-1/2 z-10 hidden size-11 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-surface text-ink shadow-card transition hover:border-secondary hover:text-secondary disabled:opacity-0 md:flex";
+    "absolute top-1/2 z-10 hidden size-11 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-surface text-ink shadow-card transition hover:border-primary hover:text-primary disabled:opacity-0 md:flex";
 
   return (
     <div

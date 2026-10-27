@@ -40,7 +40,7 @@ export function ClubCard({ club }: { club: Club }) {
               className="object-cover"
             />
           ) : (
-            <span className="font-display text-primary text-xl font-bold">
+            <span className="font-display text-secondary text-xl font-bold">
               {initials(club.name)}
             </span>
           )}
@@ -50,7 +50,7 @@ export function ClubCard({ club }: { club: Club }) {
             {club.name}
           </Link>
           {club.verified && (
-            <BadgeCheck className="text-secondary size-4" aria-label="Verified club" />
+            <BadgeCheck className="text-primary size-4" aria-label="Verified club" />
           )}
         </h3>
         <p className="text-muted mt-1 text-sm">
@@ -58,7 +58,7 @@ export function ClubCard({ club }: { club: Club }) {
           {club.ridingStyle && ` · ${club.ridingStyle}`}
         </p>
         <p className="text-body mt-3 inline-flex items-center gap-1.5 text-sm font-medium">
-          <Users className="text-secondary size-4" aria-hidden /> {formatCompact(club.memberCount)}{" "}
+          <Users className="text-primary size-4" aria-hidden /> {formatCompact(club.memberCount)}{" "}
           members
         </p>
         <Link

@@ -8,10 +8,10 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-primary text-white hover:bg-primary-hover",
-        secondary: "bg-secondary text-white hover:bg-secondary-hover",
-        outline: "border border-border bg-surface text-ink hover:border-secondary hover:text-secondary",
-        "outline-light": "border border-white/60 text-white hover:border-secondary hover:bg-secondary",
+        primary: "bg-secondary text-white hover:bg-primary",
+        secondary: "bg-secondary text-white hover:bg-primary",
+        outline: "border border-secondary bg-surface text-secondary hover:border-primary hover:bg-primary hover:text-white",
+        "outline-light": "border border-white/60 text-white hover:border-primary hover:bg-primary",
         ghost: "text-ink hover:bg-page",
         dark: "bg-ink text-white hover:bg-deep",
       },
