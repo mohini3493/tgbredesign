@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { footerColumns, socialLinks } from "@/config/site";
 import { socialIconMap } from "@/components/shared/BrandIcons";
+import { StoreBadges } from "@/components/shared/StoreBadges";
 import { Container } from "./Container";
 import { Logo } from "./Logo";
 
@@ -50,6 +51,11 @@ export function Footer() {
             </ul>
           </nav>
         ))}
+
+        <div>
+          <h3 className="text-ink/70 text-xs font-medium tracking-wider uppercase">Get the app</h3>
+          <StoreBadges className="mt-5 flex-col" />
+        </div>
       </Container>
 
       <Container className="flex flex-col gap-3 pb-8 text-sm sm:flex-row sm:items-center sm:justify-between">

@@ -29,9 +29,13 @@ export const XIcon = (p: P) => (
   </svg>
 );
 
+// Official four-colour Play glyph (not currentColor)
 export const GooglePlayIcon = (p: P) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden {...p}>
-    <path d="M3.6 2.3 13.4 12l-9.8 9.7c-.4-.2-.6-.6-.6-1.1V3.4c0-.5.2-.9.6-1.1Zm10.9 10.8 2.3 2.3-10.9 6.2 8.6-8.5Zm3.4-3.5 2.8 1.6c.8.5.8 1.6 0 2.1l-2.8 1.6-2.5-2.5 2.5-2.8ZM5.9 2.4l10.9 6.2-2.3 2.3-8.6-8.5Z" />
+  <svg viewBox="0 0 24 24" aria-hidden {...p}>
+    <path d="M3.6 2.3 13.4 12l-9.8 9.7c-.4-.2-.6-.6-.6-1.1V3.4c0-.5.2-.9.6-1.1Z" fill="#00d7fe" />
+    <path d="m14.5 13.1 2.3 2.3-10.9 6.2 8.6-8.5Z" fill="#ff3a44" />
+    <path d="m17.9 9.6 2.8 1.6c.8.5.8 1.6 0 2.1l-2.8 1.6-2.5-2.5 2.5-2.8Z" fill="#ffd500" />
+    <path d="m5.9 2.4 10.9 6.2-2.3 2.3-8.6-8.5Z" fill="#00f076" />
   </svg>
 );
 

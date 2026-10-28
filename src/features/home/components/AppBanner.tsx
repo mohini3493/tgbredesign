@@ -1,31 +1,30 @@
-import { QrCode } from "./QrCode";
 import { SmartImage } from "@/components/shared/SmartImage";
 import { StoreBadges } from "@/components/shared/StoreBadges";
 import { Container } from "@/components/layout/Container";
-import { appBannerImage, siteConfig } from "@/config/site";
+import { appBannerImage } from "@/config/site";
 import { cn } from "@/lib/utils";
-import { Bike, CalendarDays, MessageCircle, Navigation, Users } from "lucide-react";
+import { Bike, CalendarDays, Navigation, Users } from "lucide-react";
 
 export function AppBanner({ className }: { className?: string }) {
   return (
     <section aria-labelledby="app-title" className={cn("py-12 md:py-20", className)}>
       <Container>
         <div className="bg-deep relative isolate overflow-hidden rounded-[24px] px-6 py-12 md:px-12 lg:px-16 lg:py-16">
-          {/* Dark mountain backdrop, tinted toward the brand navy so the copy stays readable */}
+          {/* Group ride backdrop; heavier on the right so the copy stays readable */}
           <SmartImage
             src={appBannerImage}
             alt=""
             fill
             sizes="(min-width: 1620px) 1560px, 100vw"
-            className="-z-20 object-cover object-[50%_40%]"
+            className="-z-20 object-cover object-[50%_55%]"
           />
-          <div className="from-deep/50 via-deep/15 to-deep/35 absolute inset-0 -z-10 bg-linear-to-r" />
-          <div className="bg-secondary/15 absolute -top-24 -right-24 -z-10 size-80 rounded-full blur-3xl" />
+          <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(8,9,11,0.6)_0%,rgba(8,9,11,0.45)_42%,rgba(8,9,11,0.82)_60%,rgba(8,9,11,0.88)_100%)]" />
+          <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_120%,rgba(255,119,35,0.18),transparent_60%)]" />
 
           <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.1fr]">
-            <PhoneMockups />
+            <AppScreensShowcase />
 
-            <div>
+            <div className="lg:pl-16 xl:pl-24">
               <p className="text-primary text-xs font-bold tracking-[0.18em] uppercase">
                 TGB Mobile App
               </p>
@@ -53,17 +52,7 @@ export function AppBanner({ className }: { className?: string }) {
                   </li>
                 ))}
               </ul>
-              <div className="mt-8 flex flex-wrap items-center gap-6">
-                <StoreBadges />
-                <div className="rounded-card hidden items-center gap-3 bg-white p-2.5 pr-4 sm:flex">
-                  <QrCode value={`${siteConfig.url}${siteConfig.appLinks.download}`} size={72} />
-                  <p className="text-ink text-xs leading-tight font-semibold">
-                    Scan to
-                    <br />
-                    download
-                  </p>
-                </div>
-              </div>
+              <StoreBadges className="mt-8" />
             </div>
           </div>
         </div>
@@ -72,102 +61,23 @@ export function AppBanner({ className }: { className?: string }) {
   );
 }
 
-function PhoneFrame({ children, className }: { children: React.ReactNode; className?: string }) {
+/**
+ * App screens, large and tilted, bleeding off the banner's top, bottom and left edges.
+ * On lg the panel spans the banner's left half (positioned against the banner, not the grid cell).
+ */
+function AppScreensShowcase() {
   return (
-    <div
-      className={`border-ink bg-ink w-[200px] rounded-[34px] border-[6px] p-1 shadow-[0_30px_60px_rgba(0,0,0,0.45)] md:w-[230px] ${className ?? ""}`}
-    >
-      <div className="bg-page relative h-[400px] overflow-hidden rounded-[26px] md:h-[460px]">
-        <div className="bg-ink absolute top-2 left-1/2 z-10 h-5 w-20 -translate-x-1/2 rounded-full" />
-        {children}
+    <div className="relative -mx-6 -mt-12 h-[440px] sm:h-[540px] md:-mx-12 lg:static lg:m-0 lg:h-[560px]">
+      <div className="absolute inset-0 overflow-hidden [mask-image:linear-gradient(180deg,#000_75%,transparent)] lg:right-auto lg:w-[47%] lg:[mask-image:linear-gradient(90deg,#000_85%,transparent)]">
+        <SmartImage
+          src="/images/app/app-screens.png"
+          alt="TGB app screens: home, bike brands, login and rider feed"
+          width={1087}
+          height={1505}
+          sizes="(min-width: 1024px) 1000px, 130vw"
+          className="absolute top-1/2 left-1/2 h-auto w-[105%] max-w-none -translate-x-1/2 -translate-y-1/2 -rotate-[20deg] drop-shadow-[0_30px_50px_rgba(0,0,0,0.55)] lg:left-[52%] lg:w-[98%]"
+        />
       </div>
-    </div>
-  );
-}
-
-function PhoneMockups() {
-  return (
-    <div
-      className="relative mx-auto flex h-[440px] w-full max-w-[460px] items-center justify-center md:h-[500px]"
-      aria-hidden
-    >
-      {/* Phone 1: live ride map */}
-      <PhoneFrame className="absolute top-6 left-0 -rotate-6 sm:left-6">
-        <div className="bg-secondary-tint absolute inset-0">
-          <svg viewBox="0 0 220 460" className="h-full w-full">
-            <defs>
-              <pattern id="grid" width="22" height="22" patternUnits="userSpaceOnUse">
-                <path d="M22 0H0V22" fill="none" stroke="#4b98bf" strokeOpacity="0.15" />
-              </pattern>
-            </defs>
-            <rect width="220" height="460" fill="url(#grid)" />
-            <path
-              d="M-10 120 Q 60 90 110 140 T 230 120"
-              stroke="#ffffff"
-              strokeWidth="10"
-              fill="none"
-            />
-            <path d="M60 -10 Q 90 200 40 470" stroke="#ffffff" strokeWidth="8" fill="none" />
-            <path
-              d="M40 380 C 70 300, 150 320, 140 240 S 90 150, 170 90"
-              stroke="#ff7723"
-              strokeWidth="5"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <circle cx="40" cy="380" r="8" fill="#4b98bf" stroke="#fff" strokeWidth="3" />
-            <circle cx="170" cy="90" r="9" fill="#ff7723" stroke="#fff" strokeWidth="3" />
-          </svg>
-        </div>
-        <div className="shadow-card absolute inset-x-3 bottom-3 rounded-2xl bg-white p-3">
-          <p className="text-primary text-[10px] font-bold tracking-wider uppercase">● Live ride</p>
-          <p className="text-ink mt-1 text-sm font-bold">Nandi Hills sunrise</p>
-          <div className="mt-2 grid grid-cols-3 gap-1 text-center">
-            {[
-              ["62", "km"],
-              ["48", "km/h"],
-              ["7", "riders"],
-            ].map(([v, l]) => (
-              <div key={l} className="bg-page rounded-lg py-1.5">
-                <p className="text-ink text-sm font-bold">{v}</p>
-                <p className="text-muted text-[9px]">{l}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </PhoneFrame>
-
-      {/* Phone 2: club feed */}
-      <PhoneFrame className="absolute top-0 right-0 rotate-6 sm:right-6">
-        <div className="px-3 pt-10">
-          <p className="font-display text-ink text-xl font-bold uppercase">Club feed</p>
-          <div className="mt-3 space-y-2.5">
-            {[
-              { n: "GearUpWheels", t: "Sunday ride to Coorg — 18 going", c: "bg-secondary" },
-              { n: "Touring Tribe", t: "Spiti expedition slots open", c: "bg-secondary" },
-              { n: "Sin City Saints", t: "Night ride · Fri 10 PM", c: "bg-ink" },
-            ].map((p) => (
-              <div
-                key={p.n}
-                className="rounded-xl bg-white p-2.5 shadow-[0_2px_8px_rgba(17,20,24,0.06)]"
-              >
-                <div className="flex items-center gap-2">
-                  <span className={`size-6 rounded-full ${p.c}`} />
-                  <p className="text-ink text-[11px] font-bold">{p.n}</p>
-                </div>
-                <p className="text-body mt-1.5 text-[11px] leading-snug">{p.t}</p>
-                <div className="mt-2 h-14 rounded-lg bg-[linear-gradient(135deg,#4b98bf,#0f1a22)]" />
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="border-border absolute inset-x-0 bottom-0 flex justify-around border-t bg-white py-2.5">
-          <Navigation className="text-muted size-4" />
-          <Users className="text-primary size-4" />
-          <MessageCircle className="text-muted size-4" />
-          <Bike className="text-muted size-4" />
-        </div>
-      </PhoneFrame>
     </div>
   );
 }

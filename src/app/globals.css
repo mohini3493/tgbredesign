@@ -5,6 +5,7 @@
 @import "@fontsource/barlow-condensed/600.css";
 @import "@fontsource/barlow-condensed/700.css";
 @import "@fontsource/barlow-condensed/800.css";
+@import "@fontsource/kaushan-script/400.css";
 @import "tailwindcss";
 
 /*
@@ -38,6 +39,7 @@
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
   --font-jakarta: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Barlow Condensed", "Arial Narrow", ui-sans-serif, sans-serif;
+  --font-script: "Kaushan Script", "Brush Script MT", cursive;
 
   --radius-card: 16px;
   --radius-btn: 12px;

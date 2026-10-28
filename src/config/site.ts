@@ -7,9 +7,11 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   logo: "https://tgb.theshashank.com/wp-content/themes/hello-elementor-child/assets/images/tgb-logo-color.png",
   appLinks: {
-    android: "https://play.google.com/store/apps/details?id=com.thegoodbiker",
-    ios: "https://apps.apple.com/in/app/the-good-biker",
+    android: "https://play.google.com/store/apps/details?id=com.thegoodbiker.userapp",
+    ios: "https://apps.apple.com/us/app/the-good-biker/id6448780305",
     download: "/download",
+    /** Smart link: opens the right store for the visitor's device */
+    smart: "https://thegoodbiker.page.link/tgb",
   },
 } as const;
 
@@ -51,15 +53,6 @@ export const footerColumns: { title: string; links: NavItem[] }[] = [
       { label: "Rentals", href: "/marketplace/rentals" },
       { label: "Accessories", href: "/marketplace/accessories" },
       { label: "Services", href: "/marketplace/services" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About Us", href: "/about" },
-      { label: "Careers", href: "/careers" },
-      { label: "Contact Us", href: "/contact" },
-      { label: "Privacy Policy", href: "/privacy" },
     ],
   },
 ];
@@ -142,9 +135,13 @@ export const heroVideo: string | null = null;
 export const heroImage =
   "https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?w=2400&q=80&auto=format&fit=crop";
 
-/** Backdrop for the "Take the ride with you" app banner */
+/** Backdrop for the "Take the ride with you" app banner (black & white group ride) */
 export const appBannerImage =
-  "https://images.unsplash.com/photo-1765825365130-52e276bca060?w=2000&q=75&auto=format&fit=crop";
+  "https://images.unsplash.com/photo-1558980664-2cd663cf8dde?w=2000&q=75&auto=format&fit=crop";
+
+/** Backdrop for the "Take the ride further" app download popup */
+export const appPromptImage =
+  "https://images.unsplash.com/photo-1670644654521-6fbfffeaba87?w=2000&q=75&auto=format&fit=crop";
 
 /** Rider faces shown in the hero "Trusted by" pill */
 export const heroTrustAvatars = [

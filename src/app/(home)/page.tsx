@@ -16,11 +16,13 @@ import { PopularClubs, PopularClubsSkeleton } from "@/features/clubs/components/
 import { RidersNearYou } from "@/features/riders/components/RidersNearYou";
 import { ExploreCities, ExploreCitiesSkeleton } from "@/features/cities/components/ExploreCities";
 import { HomeJsonLd } from "@/features/home/components/HomeJsonLd";
+import { AppPromptHost, AppPromptZone } from "@/features/home/components/AppPrompt";
 
 /**
  * Homepage. Every data-driven section is wrapped in:
  *   SectionBoundary (error fallback) -> Suspense (skeleton) -> async server component (service call)
  * so one failing API call never breaks the page.
+ * Links inside an AppPromptZone open the app download popup (AppPromptHost) instead of navigating.
  */
 export default function HomePage() {
   return (
@@ -35,11 +37,13 @@ export default function HomePage() {
           description="Legendary passes, coastal highways and weekend escapes — with season, distance and difficulty."
           action={{ label: "View all routes", href: "/routes" }}
         />
-        <SectionBoundary title="Routes">
-          <Suspense fallback={<PopularRoutesSkeleton />}>
-            <PopularRoutes />
-          </Suspense>
-        </SectionBoundary>
+        <AppPromptZone>
+          <SectionBoundary title="Routes">
+            <Suspense fallback={<PopularRoutesSkeleton />}>
+              <PopularRoutes />
+            </Suspense>
+          </SectionBoundary>
+        </AppPromptZone>
       </Section>
 
       {/* Platform stats, right after the routes */}
@@ -58,11 +62,13 @@ export default function HomePage() {
           title="Upcoming events"
           action={{ label: "View all events", href: "/events" }}
         />
-        <SectionBoundary title="Events">
-          <Suspense fallback={<UpcomingEventsSkeleton />}>
-            <UpcomingEvents />
-          </Suspense>
-        </SectionBoundary>
+        <AppPromptZone>
+          <SectionBoundary title="Events">
+            <Suspense fallback={<UpcomingEventsSkeleton />}>
+              <UpcomingEvents />
+            </Suspense>
+          </SectionBoundary>
+        </AppPromptZone>
       </Section>
 
       <Section aria-labelledby="clubs-title">
@@ -72,11 +78,13 @@ export default function HomePage() {
           title="Popular clubs"
           action={{ label: "View all clubs", href: "/clubs" }}
         />
-        <SectionBoundary title="Clubs">
-          <Suspense fallback={<PopularClubsSkeleton />}>
-            <PopularClubs />
-          </Suspense>
-        </SectionBoundary>
+        <AppPromptZone>
+          <SectionBoundary title="Clubs">
+            <Suspense fallback={<PopularClubsSkeleton />}>
+              <PopularClubs />
+            </Suspense>
+          </SectionBoundary>
+        </AppPromptZone>
       </Section>
 
       <Section aria-labelledby="riders-title" className="pt-0 md:pt-0">
@@ -91,11 +99,13 @@ export default function HomePage() {
           title="Explore by city"
           action={{ label: "View all cities", href: "/cities" }}
         />
-        <SectionBoundary title="Cities">
-          <Suspense fallback={<ExploreCitiesSkeleton />}>
-            <ExploreCities />
-          </Suspense>
-        </SectionBoundary>
+        <AppPromptZone>
+          <SectionBoundary title="Cities">
+            <Suspense fallback={<ExploreCitiesSkeleton />}>
+              <ExploreCities />
+            </Suspense>
+          </SectionBoundary>
+        </AppPromptZone>
       </Section>
 
       <AppBanner className="pt-0 md:pt-0" />
@@ -107,7 +117,9 @@ export default function HomePage() {
           title="Everything a rider needs"
           description="Service your bike, rent one in a new city, gear up, or learn from the best."
         />
-        <RiderServices />
+        <AppPromptZone>
+          <RiderServices />
+        </AppPromptZone>
       </Section>
 
       <Section aria-labelledby="why-title">
@@ -127,6 +139,8 @@ export default function HomePage() {
       <Suspense>
         <HomeJsonLd />
       </Suspense>
+
+      <AppPromptHost />
     </>
   );
 }

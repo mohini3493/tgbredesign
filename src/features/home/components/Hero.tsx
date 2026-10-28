@@ -3,13 +3,13 @@
 import Link from "next/link";
 import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
 import type { MouseEvent } from "react";
-import { heroImage, heroTrustAvatars, heroVideo, siteConfig, socialLinks } from "@/config/site";
+import { heroImage, heroTrustAvatars, heroVideo, socialLinks } from "@/config/site";
 import { Container } from "@/components/layout/Container";
 import { SmartImage } from "@/components/shared/SmartImage";
 import { MotorcycleIcon } from "@/components/shared/MotorcycleIcon";
 import { socialIconMap } from "@/components/shared/BrandIcons";
+import { StoreBadges } from "@/components/shared/StoreBadges";
 import { HeroRoad } from "./HeroRoad";
-import { HeroLiveCards } from "./HeroLiveCards";
 import { RotatingWord } from "./RotatingWord";
 import { WindStreaks } from "./WindStreaks";
 
@@ -24,7 +24,7 @@ const enter = (delay: number, y = 16) => ({
 
 /**
  * Full-screen hero: cinematic background, content anchored top-left,
- * trust pill → headline → copy → CTAs, socials pinned bottom-left.
+ * trust pill → headline → copy → store badges + ride CTA, socials pinned bottom-left.
  * Accents use brand colors only (#ff7723, #4b98bf).
  */
 export function Hero() {
@@ -122,8 +122,6 @@ export function Hero() {
         <HeroRoad className="h-full w-full" />
       </motion.div>
 
-      <HeroLiveCards mx={mx} my={my} />
-
       <Container className="relative z-10 flex h-full flex-col justify-start pt-[22vh]">
         {/* Trust pill */}
         <motion.div
@@ -164,16 +162,9 @@ export function Hero() {
           in one app.
         </motion.p>
 
-        <motion.div {...enter(0.58)} className="mt-9 flex items-center gap-4">
-          <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-            <Link
-              href={siteConfig.appLinks.download}
-              className="bg-secondary hover:bg-primary hover:border-primary inline-flex items-center rounded-full border border-white/15 px-8 py-4 text-base font-semibold text-white transition-colors"
-            >
-              Download the App
-            </Link>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.93 }} className="relative">
+        <motion.div {...enter(0.58)} className="mt-9 flex flex-wrap items-center gap-4">
+          <StoreBadges />
+          <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.93 }} className="relative max-sm:hidden">
             {!reduce && (
               <span className="border-secondary/70 pointer-events-none absolute inset-0 animate-ping rounded-full border [animation-duration:2.4s]" />
             )}

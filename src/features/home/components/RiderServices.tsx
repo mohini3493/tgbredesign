@@ -33,7 +33,7 @@ export function RiderServices() {
               href={s.href}
               className="group rounded-card bg-page hover:shadow-card-hover relative isolate flex h-full min-h-56 flex-col overflow-hidden p-5 transition duration-300 hover:-translate-y-1"
             >
-              <Icon className="text-primary size-7" strokeWidth={1.5} aria-hidden />
+              <Icon className="text-secondary size-7" strokeWidth={1.5} aria-hidden />
               <h3 className="text-ink mt-5 text-lg font-bold">{s.title}</h3>
               <p className="text-body mt-2 max-w-[55%] flex-1 text-sm leading-relaxed">
                 {s.description}
@@ -41,7 +41,7 @@ export function RiderServices() {
               <span className="text-secondary mt-4 inline-flex items-center gap-1.5 text-sm font-semibold">
                 Explore
                 <ArrowRight
-                  className="text-primary size-4 transition-transform group-hover:translate-x-0.5"
+                  className="text-secondary size-4 transition-transform group-hover:translate-x-0.5"
                   aria-hidden
                 />
               </span>

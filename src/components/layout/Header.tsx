@@ -68,7 +68,7 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
             className={cn(buttonVariants({ variant: "ghost", size: "icon" }), iconTone(transparent), "relative hidden sm:inline-flex")}
           >
             <Bell className="!size-5" />
-            <span className={cn("absolute right-2.5 top-2.5 size-2 rounded-full bg-secondary ring-2", transparent ? "ring-transparent" : "ring-white")} />
+            <span className={cn("absolute right-2.5 top-2.5 size-2 rounded-full bg-primary ring-2 ring-white")} />
           </Link>
           {features.shop && <CartButton />}
           {features.auth && (
@@ -77,7 +77,9 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
             </ButtonLink>
           )}
           <ButtonLink
-            href={siteConfig.appLinks.download}
+            href={siteConfig.appLinks.smart}
+            target="_blank"
+            rel="noopener noreferrer"
             size="sm"
             className={cn(
               "ml-2 hidden md:inline-flex",
@@ -111,7 +113,14 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
               <ActiveNavLinks variant="mobile" onNavigate={() => setOpen(false)} />
             </Suspense>
           </nav>
-          <ButtonLink href={siteConfig.appLinks.download} size="lg" className="mt-6 w-full" onClick={() => setOpen(false)}>
+          <ButtonLink
+            href={siteConfig.appLinks.smart}
+            target="_blank"
+            rel="noopener noreferrer"
+            size="lg"
+            className="mt-6 w-full"
+            onClick={() => setOpen(false)}
+          >
             Download the App <Download />
           </ButtonLink>
         </Container>
@@ -124,7 +133,7 @@ function CartButton() {
   const items = useCart((s) => s.items);
   const count = cartCount(items);
   return (
-    <Link href="/shop/cart" aria-label={`Cart, ${count} items`} className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "relative text-primary")}>
+    <Link href="/shop/cart" aria-label={`Cart, ${count} items`} className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "relative text-secondary")}>
       <ShoppingBag className="!size-5" />
       {count > 0 && (
         <span className="absolute right-1 top-1 grid size-4.5 place-items-center rounded-full bg-secondary text-[10px] font-bold text-white">
@@ -154,9 +163,9 @@ function NavLinks({ variant, pathname, onNavigate }: NavLinksProps) {
         aria-current={active ? "page" : undefined}
         className={cn(
           variant === "desktop"
-            ? "relative rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:text-primary"
+            ? "relative rounded-lg px-3 py-2 text-[15px] font-bold transition-colors hover:text-primary group-data-[transparent]/header:[text-shadow:0_1px_10px_rgba(0,0,0,0.55)]"
             : "border-b border-border py-4 font-display text-2xl font-bold uppercase",
-          active ? "text-secondary" : "text-ink group-data-[transparent]/header:text-white/85 group-data-[transparent]/header:hover:text-white",
+          active ? "text-secondary" : "text-ink group-data-[transparent]/header:text-white group-data-[transparent]/header:hover:text-primary",
         )}
       >
         {item.label}
@@ -169,5 +178,5 @@ function NavLinks({ variant, pathname, onNavigate }: NavLinksProps) {
 }
 
 function iconTone(transparent: boolean) {
-  return cn("text-primary", transparent && "hover:bg-white/10");
+  return cn("text-secondary", transparent && "rounded-full bg-white/90 shadow-[0_4px_14px_rgba(0,0,0,0.18)] hover:bg-white");
 }
