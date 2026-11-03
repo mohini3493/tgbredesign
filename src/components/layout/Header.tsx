@@ -6,6 +6,7 @@ import { Suspense, useEffect, useState } from "react";
 import { Bell, Download, Menu, Search, ShoppingBag, X } from "lucide-react";
 import { features } from "@/config/features";
 import { mainNav, siteConfig } from "@/config/site";
+import { AppPromptZone } from "@/features/home/components/AppPrompt";
 import { cartCount, useCart } from "@/features/shop/store/cart";
 import { buttonVariants, ButtonLink } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -15,6 +16,8 @@ import { Logo } from "./Logo";
 /**
  * @param overlay  Transparent header that floats over a full-bleed hero (homepage).
  *                 Turns solid white once the page is scrolled or the menu opens.
+ *
+ * Pages aren't built yet, so nav, search and notification links open the app download popup.
  */
 export function Header({ overlay = false }: { overlay?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
@@ -52,24 +55,28 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
         <Logo priority />
 
         <nav aria-label="Main" className="ml-auto hidden items-center gap-1 lg:flex">
-          {/* usePathname is request data: stream the active state, prerender plain links */}
-          <Suspense fallback={<NavLinks variant="desktop" />}>
-            <ActiveNavLinks variant="desktop" />
-          </Suspense>
+          <AppPromptZone className="contents">
+            {/* usePathname is request data: stream the active state, prerender plain links */}
+            <Suspense fallback={<NavLinks variant="desktop" />}>
+              <ActiveNavLinks variant="desktop" />
+            </Suspense>
+          </AppPromptZone>
         </nav>
 
         <div className="ml-auto flex items-center gap-1 lg:ml-0">
-          <Link href="/search" aria-label="Search" className={cn(buttonVariants({ variant: "ghost", size: "icon" }), iconTone(transparent))}>
-            <Search className="!size-5" />
-          </Link>
-          <Link
-            href="/notifications"
-            aria-label="Notifications (new)"
-            className={cn(buttonVariants({ variant: "ghost", size: "icon" }), iconTone(transparent), "relative hidden sm:inline-flex")}
-          >
-            <Bell className="!size-5" />
-            <span className={cn("absolute right-2.5 top-2.5 size-2 rounded-full bg-primary ring-2 ring-white")} />
-          </Link>
+          <AppPromptZone className="contents">
+            <Link href="/search" aria-label="Search" className={cn(buttonVariants({ variant: "ghost", size: "icon" }), iconTone(transparent))}>
+              <Search className="!size-5" />
+            </Link>
+            <Link
+              href="/notifications"
+              aria-label="Notifications (new)"
+              className={cn(buttonVariants({ variant: "ghost", size: "icon" }), iconTone(transparent), "relative hidden sm:inline-flex")}
+            >
+              <Bell className="!size-5" />
+              <span className={cn("absolute right-2.5 top-2.5 size-2 rounded-full bg-primary ring-2 ring-white")} />
+            </Link>
+          </AppPromptZone>
           {features.shop && <CartButton />}
           {features.auth && (
             <ButtonLink href="/login" variant="outline" size="sm" className="ml-1 hidden md:inline-flex">
@@ -108,10 +115,13 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
         className="fixed inset-x-0 top-[88px] bottom-0 z-40 overflow-y-auto border-t border-border bg-white lg:hidden"
       >
         <Container className="py-4">
-          <nav aria-label="Mobile" className="flex flex-col">
-            <Suspense fallback={<NavLinks variant="mobile" onNavigate={() => setOpen(false)} />}>
-              <ActiveNavLinks variant="mobile" onNavigate={() => setOpen(false)} />
-            </Suspense>
+          {/* Close the menu in the capture phase, before the zone swallows the click */}
+          <nav aria-label="Mobile" className="flex flex-col" onClickCapture={() => setOpen(false)}>
+            <AppPromptZone className="contents">
+              <Suspense fallback={<NavLinks variant="mobile" />}>
+                <ActiveNavLinks variant="mobile" />
+              </Suspense>
+            </AppPromptZone>
           </nav>
           <ButtonLink
             href={siteConfig.appLinks.smart}

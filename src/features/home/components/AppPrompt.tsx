@@ -15,7 +15,7 @@ export function AppPromptHost() {
  * Any link clicked inside opens the app download popup instead of navigating.
  * Modified clicks (new tab / window) still follow the link.
  */
-export function AppPromptZone({ children }: { children: ReactNode }) {
+export function AppPromptZone({ children, className }: { children: ReactNode; className?: string }) {
   const show = useAppPrompt((s) => s.show);
 
   const onClickCapture = (e: MouseEvent<HTMLDivElement>) => {
@@ -26,5 +26,9 @@ export function AppPromptZone({ children }: { children: ReactNode }) {
     show();
   };
 
-  return <div onClickCapture={onClickCapture}>{children}</div>;
+  return (
+    <div onClickCapture={onClickCapture} className={className}>
+      {children}
+    </div>
+  );
 }

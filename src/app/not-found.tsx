@@ -1,6 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ButtonLink } from "@/components/ui/button";
+import { AppPromptHost } from "@/features/home/components/AppPrompt";
 
 export default function NotFound() {
   return (
@@ -13,6 +14,7 @@ export default function NotFound() {
         <ButtonLink href="/" className="mt-8">Back to home</ButtonLink>
       </main>
       <Footer />
+      <AppPromptHost />
     </>
   );
 }

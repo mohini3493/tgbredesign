@@ -16,13 +16,13 @@ import { PopularClubs, PopularClubsSkeleton } from "@/features/clubs/components/
 import { RidersNearYou } from "@/features/riders/components/RidersNearYou";
 import { ExploreCities, ExploreCitiesSkeleton } from "@/features/cities/components/ExploreCities";
 import { HomeJsonLd } from "@/features/home/components/HomeJsonLd";
-import { AppPromptHost, AppPromptZone } from "@/features/home/components/AppPrompt";
+import { AppPromptZone } from "@/features/home/components/AppPrompt";
 
 /**
  * Homepage. Every data-driven section is wrapped in:
  *   SectionBoundary (error fallback) -> Suspense (skeleton) -> async server component (service call)
  * so one failing API call never breaks the page.
- * Links inside an AppPromptZone open the app download popup (AppPromptHost) instead of navigating.
+ * Links inside an AppPromptZone open the app download popup (AppPromptHost, mounted by the layout) instead of navigating.
  */
 export default function HomePage() {
   return (
@@ -140,7 +140,6 @@ export default function HomePage() {
         <HomeJsonLd />
       </Suspense>
 
-      <AppPromptHost />
     </>
   );
 }

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { footerColumns, socialLinks } from "@/config/site";
 import { socialIconMap } from "@/components/shared/BrandIcons";
 import { StoreBadges } from "@/components/shared/StoreBadges";
+import { AppPromptZone } from "@/features/home/components/AppPrompt";
 import { Container } from "./Container";
 import { Logo } from "./Logo";
 
@@ -40,15 +41,18 @@ export function Footer() {
             <h3 className="text-ink/70 text-xs font-medium tracking-wider uppercase">
               {col.title}
             </h3>
-            <ul className="mt-5 space-y-3.5">
-              {col.links.map((l) => (
-                <li key={l.href}>
-                  <Link href={l.href} className="hover:text-primary text-sm transition-colors">
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            {/* Pages aren't built yet: links open the app download popup */}
+            <AppPromptZone>
+              <ul className="mt-5 space-y-3.5">
+                {col.links.map((l) => (
+                  <li key={l.href}>
+                    <Link href={l.href} className="hover:text-primary text-sm transition-colors">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </AppPromptZone>
           </nav>
         ))}
 
@@ -60,14 +64,14 @@ export function Footer() {
 
       <Container className="flex flex-col gap-3 pb-8 text-sm sm:flex-row sm:items-center sm:justify-between">
         <p>© {COPYRIGHT_YEAR} The Good Biker. All rights reserved.</p>
-        <div className="flex gap-10">
+        <AppPromptZone className="flex gap-10">
           <Link href="/terms" className="hover:text-primary transition-colors">
             Terms of Use
           </Link>
           <Link href="/privacy" className="hover:text-primary transition-colors">
             Privacy Policy
           </Link>
-        </div>
+        </AppPromptZone>
       </Container>
     </footer>
   );
