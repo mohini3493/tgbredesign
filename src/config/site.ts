@@ -135,6 +135,18 @@ export const heroVideo: string | null = null;
 export const heroImage =
   "https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?w=2400&q=80&auto=format&fit=crop";
 
+export type HeroSlide = { src: string; alt: string; position: string };
+
+/** Crossfading hero backgrounds for the "Home with slider" page. `position` is the CSS object-position. */
+export const heroSlides: HeroSlide[] = [
+  { src: "/images/hero/slide-1.webp", alt: "Rider leaning into a straight on a race track", position: "55% 60%" },
+  { src: "/images/hero/slide-2.webp", alt: "Group of touring motorcycles climbing a mountain highway", position: "60% 70%" },
+  { src: "/images/hero/slide-3.webp", alt: "Motorcycle club riding together through a city street", position: "70% 60%" },
+  { src: "/images/hero/slide-4.webp", alt: "Dirt bikes racing along the beach", position: "60% 70%" },
+  { src: "/images/hero/slide-5.webp", alt: "Adventure riders on a gravel road below snow-capped peaks", position: "60% 75%" },
+  { src: "/images/hero/slide-6.webp", alt: "Riders in a line on a canyon road in Ladakh", position: "60% 45%" },
+];
+
 /** Backdrop for the "Take the ride with you" app banner (black & white group ride) */
 export const appBannerImage =
   "https://images.unsplash.com/photo-1558980664-2cd663cf8dde?w=2000&q=75&auto=format&fit=crop";

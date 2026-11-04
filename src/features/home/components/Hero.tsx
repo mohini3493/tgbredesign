@@ -3,13 +3,14 @@
 import Link from "next/link";
 import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
 import type { MouseEvent } from "react";
-import { heroImage, heroTrustAvatars, heroVideo, socialLinks } from "@/config/site";
+import { heroImage, heroTrustAvatars, heroVideo, socialLinks, type HeroSlide } from "@/config/site";
 import { Container } from "@/components/layout/Container";
 import { SmartImage } from "@/components/shared/SmartImage";
 import { MotorcycleIcon } from "@/components/shared/MotorcycleIcon";
 import { socialIconMap } from "@/components/shared/BrandIcons";
 import { StoreBadges } from "@/components/shared/StoreBadges";
 import { HeroRoad } from "./HeroRoad";
+import { HeroSlides } from "./HeroSlides";
 import { RotatingWord } from "./RotatingWord";
 import { WindStreaks } from "./WindStreaks";
 
@@ -26,8 +27,10 @@ const enter = (delay: number, y = 16) => ({
  * Full-screen hero: cinematic background, content anchored top-left,
  * trust pill → headline → copy → store badges + ride CTA, socials pinned bottom-left.
  * Accents use brand colors only (#ff7723, #4b98bf).
+ *
+ * @param slides  Optional background images that crossfade in place of the single hero image/video.
  */
-export function Hero() {
+export function Hero({ slides }: { slides?: HeroSlide[] }) {
   const reduce = useReducedMotion();
 
   // Cursor parallax (-0.5 … 0.5), smoothed with a spring
@@ -67,7 +70,9 @@ export function Hero() {
               : { duration: 24, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }
           }
         >
-          {heroVideo ? (
+          {slides?.length ? (
+            <HeroSlides slides={slides} />
+          ) : heroVideo ? (
             <video
               className="absolute inset-0 h-full w-full object-cover"
               src={heroVideo}

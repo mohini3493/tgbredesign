@@ -1,0 +1,154 @@
+import type { Metadata } from "next";
+import { Suspense } from "react";
+import { heroSlides } from "@/config/site";
+import { Section } from "@/components/layout/Section";
+import { SectionHeader } from "@/components/shared/SectionHeader";
+import { SectionBoundary } from "@/components/shared/SectionBoundary";
+import { Hero } from "@/features/home/components/Hero";
+import { AppBanner } from "@/features/home/components/AppBanner";
+import { RiderServices } from "@/features/home/components/RiderServices";
+import { Testimonials, TestimonialsSkeleton, ValueProps } from "@/features/home/components/WhyTgb";
+import { StatsStrip, StatsStripSkeleton } from "@/features/stats/components/StatsStrip";
+import { PopularRoutes, PopularRoutesSkeleton } from "@/features/routes/components/PopularRoutes";
+import {
+  UpcomingEvents,
+  UpcomingEventsSkeleton,
+} from "@/features/events/components/UpcomingEvents";
+import { PopularClubs, PopularClubsSkeleton } from "@/features/clubs/components/PopularClubs";
+import { RidersNearYou } from "@/features/riders/components/RidersNearYou";
+import { ExploreCities, ExploreCitiesSkeleton } from "@/features/cities/components/ExploreCities";
+import { HomeJsonLd } from "@/features/home/components/HomeJsonLd";
+import { AppPromptZone } from "@/features/home/components/AppPrompt";
+
+// Alternate homepage under review: keep it out of search so it doesn't compete with "/".
+export const metadata: Metadata = {
+  title: "Home with slider",
+  robots: { index: false, follow: false },
+};
+
+/**
+ * "Home with slider" — duplicate of the homepage (/) to try a slider version on.
+ * Every data-driven section is wrapped in:
+ *   SectionBoundary (error fallback) -> Suspense (skeleton) -> async server component (service call)
+ * so one failing API call never breaks the page.
+ * Links inside an AppPromptZone open the app download popup (AppPromptHost, mounted by the layout) instead of navigating.
+ */
+export default function HomeWithSliderPage() {
+  return (
+    <>
+      <Hero slides={heroSlides} />
+
+      <Section aria-labelledby="routes-title" className="pb-10 md:pb-14">
+        <SectionHeader
+          id="routes-title"
+          eyebrow="Curated by riders"
+          title="Popular routes"
+          description="Legendary passes, coastal highways and weekend escapes — with season, distance and difficulty."
+          action={{ label: "View all routes", href: "/routes" }}
+        />
+        <AppPromptZone>
+          <SectionBoundary title="Routes">
+            <Suspense fallback={<PopularRoutesSkeleton />}>
+              <PopularRoutes />
+            </Suspense>
+          </SectionBoundary>
+        </AppPromptZone>
+      </Section>
+
+      {/* Platform stats, right after the routes */}
+      <div className="pb-12 md:pb-20">
+        <SectionBoundary title="Stats">
+          <Suspense fallback={<StatsStripSkeleton />}>
+            <StatsStrip />
+          </Suspense>
+        </SectionBoundary>
+      </div>
+
+      <Section aria-labelledby="events-title" className="bg-white">
+        <SectionHeader
+          id="events-title"
+          eyebrow="Mark your calendar"
+          title="Upcoming events"
+          action={{ label: "View all events", href: "/events" }}
+        />
+        <AppPromptZone>
+          <SectionBoundary title="Events">
+            <Suspense fallback={<UpcomingEventsSkeleton />}>
+              <UpcomingEvents />
+            </Suspense>
+          </SectionBoundary>
+        </AppPromptZone>
+      </Section>
+
+      <Section aria-labelledby="clubs-title">
+        <SectionHeader
+          id="clubs-title"
+          eyebrow="Ride together"
+          title="Popular clubs"
+          action={{ label: "View all clubs", href: "/clubs" }}
+        />
+        <AppPromptZone>
+          <SectionBoundary title="Clubs">
+            <Suspense fallback={<PopularClubsSkeleton />}>
+              <PopularClubs />
+            </Suspense>
+          </SectionBoundary>
+        </AppPromptZone>
+      </Section>
+
+      <Section aria-labelledby="riders-title" className="pt-0 md:pt-0">
+        <SectionHeader id="riders-title" eyebrow="Your next riding buddy" title="Riders near you" />
+        <RidersNearYou />
+      </Section>
+
+      <Section aria-labelledby="cities-title" className="pt-0 md:pt-0">
+        <SectionHeader
+          id="cities-title"
+          eyebrow="25+ cities"
+          title="Explore by city"
+          action={{ label: "View all cities", href: "/cities" }}
+        />
+        <AppPromptZone>
+          <SectionBoundary title="Cities">
+            <Suspense fallback={<ExploreCitiesSkeleton />}>
+              <ExploreCities />
+            </Suspense>
+          </SectionBoundary>
+        </AppPromptZone>
+      </Section>
+
+      <AppBanner className="pt-0 md:pt-0" />
+
+      <Section aria-labelledby="services-title" className="bg-white">
+        <SectionHeader
+          id="services-title"
+          eyebrow="Beyond the ride"
+          title="Everything a rider needs"
+          description="Service your bike, rent one in a new city, gear up, or learn from the best."
+        />
+        <AppPromptZone>
+          <RiderServices />
+        </AppPromptZone>
+      </Section>
+
+      <Section aria-labelledby="why-title">
+        <SectionHeader id="why-title" eyebrow="Why TGB" title="Why riders love TGB" />
+        <ValueProps />
+      </Section>
+
+      <Section aria-labelledby="testimonials-title" className="pt-0 md:pt-0">
+        <SectionHeader id="testimonials-title" eyebrow="Testimonials" title="What riders say" />
+        <SectionBoundary title="Testimonials">
+          <Suspense fallback={<TestimonialsSkeleton />}>
+            <Testimonials />
+          </Suspense>
+        </SectionBoundary>
+      </Section>
+
+      <Suspense>
+        <HomeJsonLd />
+      </Suspense>
+
+    </>
+  );
+}
