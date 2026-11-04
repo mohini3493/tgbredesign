@@ -17,6 +17,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
       { protocol: "https", hostname: "tgb.theshashank.com" },
+      { protocol: "https", hostname: "i.ytimg.com" }, // YouTube video thumbnails
       ...(apiImageHost ? [{ protocol: "https" as const, hostname: apiImageHost }] : []),
     ],
   },

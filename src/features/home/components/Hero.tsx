@@ -11,6 +11,7 @@ import { socialIconMap } from "@/components/shared/BrandIcons";
 import { StoreBadges } from "@/components/shared/StoreBadges";
 import { HeroRoad } from "./HeroRoad";
 import { HeroSlides } from "./HeroSlides";
+import { HeroYouTube } from "./HeroYouTube";
 import { RotatingWord } from "./RotatingWord";
 import { WindStreaks } from "./WindStreaks";
 
@@ -28,9 +29,11 @@ const enter = (delay: number, y = 16) => ({
  * trust pill → headline → copy → store badges + ride CTA, socials pinned bottom-left.
  * Accents use brand colors only (#ff7723, #4b98bf).
  *
- * @param slides  Optional background images that crossfade in place of the single hero image/video.
+ * @param slides     Optional background images that crossfade in place of the single hero image/video.
+ * @param youtubeId  Optional YouTube video played muted and looped as the background.
+ * Either one also hides the animated road + rider.
  */
-export function Hero({ slides }: { slides?: HeroSlide[] }) {
+export function Hero({ slides, youtubeId }: { slides?: HeroSlide[]; youtubeId?: string }) {
   const reduce = useReducedMotion();
 
   // Cursor parallax (-0.5 … 0.5), smoothed with a spring
@@ -72,6 +75,8 @@ export function Hero({ slides }: { slides?: HeroSlide[] }) {
         >
           {slides?.length ? (
             <HeroSlides slides={slides} />
+          ) : youtubeId ? (
+            <HeroYouTube videoId={youtubeId} alt="Motorcyclists riding together" />
           ) : heroVideo ? (
             <video
               className="absolute inset-0 h-full w-full object-cover"
@@ -116,16 +121,18 @@ export function Hero({ slides }: { slides?: HeroSlide[] }) {
 
       <WindStreaks />
 
-      {/* Animated route with a rider */}
-      <motion.div
-        style={{ x: roadX }}
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
-        className="pointer-events-none absolute right-0 bottom-0 h-[30%] w-full [mask-image:linear-gradient(to_right,transparent,black_22%)] md:h-[40%] md:w-[72%]"
-      >
-        <HeroRoad className="h-full w-full" />
-      </motion.div>
+      {/* Animated route with a rider (single-image hero only; slides and video carry their own riders) */}
+      {!slides?.length && !youtubeId && (
+        <motion.div
+          style={{ x: roadX }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
+          className="pointer-events-none absolute right-0 bottom-0 h-[30%] w-full [mask-image:linear-gradient(to_right,transparent,black_22%)] md:h-[40%] md:w-[72%]"
+        >
+          <HeroRoad className="h-full w-full" />
+        </motion.div>
+      )}
 
       <Container className="relative z-10 flex h-full flex-col justify-start pt-[22vh]">
         {/* Trust pill */}

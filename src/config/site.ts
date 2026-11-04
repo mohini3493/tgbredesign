@@ -132,6 +132,9 @@ export const valueProps = [
  */
 export const heroVideo: string | null = null;
 
+/** YouTube background video for the "Home with video" page (id from youtube.com/watch?v=…) */
+export const heroYouTubeId = "8FaqGN8eWF8";
+
 export const heroImage =
   "https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?w=2400&q=80&auto=format&fit=crop";
 
