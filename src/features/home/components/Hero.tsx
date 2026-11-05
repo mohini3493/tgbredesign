@@ -9,6 +9,7 @@ import { SmartImage } from "@/components/shared/SmartImage";
 import { MotorcycleIcon } from "@/components/shared/MotorcycleIcon";
 import { socialIconMap } from "@/components/shared/BrandIcons";
 import { StoreBadges } from "@/components/shared/StoreBadges";
+import { AppPromptZone } from "./AppPrompt";
 import { HeroRoad } from "./HeroRoad";
 import { HeroSlides } from "./HeroSlides";
 import { HeroYouTube } from "./HeroYouTube";
@@ -180,20 +181,23 @@ export function Hero({ slides, youtubeId }: { slides?: HeroSlide[]; youtubeId?: 
             {!reduce && (
               <span className="border-secondary/70 pointer-events-none absolute inset-0 animate-ping rounded-full border [animation-duration:2.4s]" />
             )}
-            <Link
-              href="/rides"
-              aria-label="Explore rides"
-              title="Explore rides"
-              className="hover:border-primary hover:bg-primary grid size-14 place-items-center rounded-full border border-white/25 bg-white/12 text-white backdrop-blur-sm transition-colors"
-            >
-              <motion.span
-                className="inline-flex"
-                animate={reduce ? undefined : { x: [0, 2, 0, -1, 0], rotate: [0, -2, 0, 1, 0] }}
-                transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+            {/* Rides page isn't built yet: opens the app download popup */}
+            <AppPromptZone className="contents">
+              <Link
+                href="/rides"
+                aria-label="Explore rides"
+                title="Explore rides"
+                className="hover:border-primary hover:bg-primary grid size-14 place-items-center rounded-full border border-white/25 bg-white/12 text-white backdrop-blur-sm transition-colors"
               >
-                <MotorcycleIcon className="size-8" />
-              </motion.span>
-            </Link>
+                <motion.span
+                  className="inline-flex"
+                  animate={reduce ? undefined : { x: [0, 2, 0, -1, 0], rotate: [0, -2, 0, 1, 0] }}
+                  transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <MotorcycleIcon className="size-8" />
+                </motion.span>
+              </Link>
+            </AppPromptZone>
           </motion.div>
         </motion.div>
       </Container>
