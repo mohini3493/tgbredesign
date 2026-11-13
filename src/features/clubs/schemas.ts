@@ -17,3 +17,15 @@ export const clubSchema = z.object({
   membershipRequired: z.boolean().default(false),
 });
 export type Club = z.infer<typeof clubSchema>;
+
+/** A club as listed in the /clubs directory: the card data plus what the filters work on. */
+export const clubListingSchema = clubSchema.extend({
+  /** Empty for pan-India clubs */
+  state: z.string(),
+  rideCount: z.number(),
+  tags: z.array(z.string()),
+  description: z.string(),
+  type: z.string(),
+  bikeType: z.string(),
+});
+export type ClubListing = z.infer<typeof clubListingSchema>;

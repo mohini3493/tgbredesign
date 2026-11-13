@@ -1,0 +1,317 @@
+{
+  "data": [
+    {
+      "id": "cl_bangalore_bikers",
+      "slug": "bangalore-bikers",
+      "name": "Bangalore Bikers",
+      "city": "Bengaluru",
+      "memberCount": 256,
+      "coverImage": "https://images.unsplash.com/photo-1758090524309-199d4588e225?w=800&q=75&auto=format&fit=crop",
+      "logo": null,
+      "ridingStyle": "Touring",
+      "verified": true,
+      "membershipRequired": false,
+      "state": "Karnataka",
+      "rideCount": 32,
+      "tags": [
+        "Touring",
+        "Community",
+        "Weekend Rides"
+      ],
+      "description": "A community of passionate riders exploring roads and creating unforgettable memories.",
+      "type": "Community",
+      "bikeType": "Mixed"
+    },
+    {
+      "id": "cl_highway_hunters",
+      "slug": "highway-hunters",
+      "name": "Highway Hunters",
+      "city": "Mumbai",
+      "memberCount": 189,
+      "coverImage": "https://images.unsplash.com/photo-1700891591563-5327de496cfd?w=800&q=75&auto=format&fit=crop",
+      "logo": null,
+      "ridingStyle": "Touring",
+      "verified": true,
+      "membershipRequired": false,
+      "state": "Maharashtra",
+      "rideCount": 28,
+      "tags": [
+        "Touring",
+        "Adventure",
+        "Long Rides"
+      ],
+      "description": "Born to ride. Built for the highway. Join us for epic rides and brotherhood.",
+      "type": "Touring group",
+      "bikeType": "Cruiser"
+    },
+    {
+      "id": "cl_night_riders_india",
+      "slug": "night-riders-india",
+      "name": "Night Riders India",
+      "city": "Pune",
+      "memberCount": 142,
+      "coverImage": "https://images.unsplash.com/photo-1760256995381-c90eac2060f1?w=800&q=75&auto=format&fit=crop",
+      "logo": null,
+      "ridingStyle": "Night Rides",
+      "verified": false,
+      "membershipRequired": false,
+      "state": "Maharashtra",
+      "rideCount": 18,
+      "tags": [
+        "Night Rides",
+        "Community",
+        "Fun"
+      ],
+      "description": "We come alive when the city sleeps. Night rides, good vibes, great people.",
+      "type": "Community",
+      "bikeType": "Mixed"
+    },
+    {
+      "id": "cl_classic_souls",
+      "slug": "classic-souls",
+      "name": "Classic Souls",
+      "city": "Chennai",
+      "memberCount": 113,
+      "coverImage": "https://images.unsplash.com/photo-1558980664-2cd663cf8dde?w=800&q=75&auto=format&fit=crop",
+      "logo": null,
+      "ridingStyle": "Classic Bikes",
+      "verified": false,
+      "membershipRequired": false,
+      "state": "Tamil Nadu",
+      "rideCount": 15,
+      "tags": [
+        "Classic Bikes",
+        "Heritage",
+        "Ride & Restore"
+      ],
+      "description": "Keeping the classic spirit alive. Vintage machines, timeless friendships.",
+      "type": "Owners club",
+      "bikeType": "Classic"
+    },
+    {
+      "id": "cl_coastal_riders",
+      "slug": "coastal-riders",
+      "name": "Coastal Riders",
+      "city": "Mangaluru",
+      "memberCount": 86,
+      "coverImage": "https://images.unsplash.com/photo-1614082242765-7c98ca0f3df3?w=800&q=75&auto=format&fit=crop",
+      "logo": null,
+      "ridingStyle": "Touring",
+      "verified": false,
+      "membershipRequired": false,
+      "state": "Karnataka",
+      "rideCount": 17,
+      "tags": [
+        "Touring",
+        "Coastal",
+        "Photography"
+      ],
+      "description": "Chasing horizons along the coast. Rides, sunsets and sea breeze.",
+      "type": "Touring group",
+      "bikeType": "Mixed"
+    },
+    {
+      "id": "cl_wild_trails",
+      "slug": "wild-trails",
+      "name": "Wild Trails",
+      "city": "Coorg",
+      "memberCount": 97,
+      "coverImage": "https://images.unsplash.com/photo-1701599346665-88d37f67fed0?w=800&q=75&auto=format&fit=crop",
+      "logo": null,
+      "ridingStyle": "Adventure",
+      "verified": true,
+      "membershipRequired": false,
+      "state": "Karnataka",
+      "rideCount": 22,
+      "tags": [
+        "Adventure",
+        "Off-road",
+        "Exploration"
+      ],
+      "description": "Off the beaten path is where we belong. Trails, mud, mountains and memories.",
+      "type": "Touring group",
+      "bikeType": "Adventure"
+    },
+    {
+      "id": "cl_throttle_brothers",
+      "slug": "throttle-brothers",
+      "name": "Throttle Brothers",
+      "city": "Hyderabad",
+      "memberCount": 121,
+      "coverImage": "https://images.unsplash.com/photo-1687181493462-0ca5d5627285?w=800&q=75&auto=format&fit=crop",
+      "logo": null,
+      "ridingStyle": "Sport",
+      "verified": false,
+      "membershipRequired": false,
+      "state": "Telangana",
+      "rideCount": 21,
+      "tags": [
+        "Sport",
+        "Track Days",
+        "Community"
+      ],
+      "description": "High revs. Tight corners. Pure adrenaline. Performance is our passion.",
+      "type": "Performance",
+      "bikeType": "Sport"
+    },
+    {
+      "id": "cl_northern_nomads",
+      "slug": "northern-nomads",
+      "name": "Northern Nomads",
+      "city": "Delhi NCR",
+      "memberCount": 78,
+      "coverImage": "https://images.unsplash.com/photo-1762696782497-2b39df0f4523?w=800&q=75&auto=format&fit=crop",
+      "logo": null,
+      "ridingStyle": "Touring",
+      "verified": false,
+      "membershipRequired": false,
+      "state": "Delhi",
+      "rideCount": 14,
+      "tags": [
+        "Touring",
+        "Adventure",
+        "Camping"
+      ],
+      "description": "Nomads by choice. Mountains call us home.",
+      "type": "Touring group",
+      "bikeType": "Adventure"
+    },
+    {
+      "id": "cl_backroad_explorers",
+      "slug": "backroad-explorers",
+      "name": "Backroad Explorers",
+      "city": "Dehradun",
+      "memberCount": 64,
+      "coverImage": "https://images.unsplash.com/photo-1618805714320-f8825019c1be?w=800&q=75&auto=format&fit=crop",
+      "logo": null,
+      "ridingStyle": "Exploration",
+      "verified": false,
+      "membershipRequired": false,
+      "state": "Uttarakhand",
+      "rideCount": 11,
+      "tags": [
+        "Exploration",
+        "Scenic",
+        "Weekend Rides"
+      ],
+      "description": "Discovering hidden gems, one backroad at a time.",
+      "type": "Community",
+      "bikeType": "Mixed"
+    },
+    {
+      "id": "cl_gearup",
+      "slug": "gearupwheels",
+      "name": "GearUpWheels",
+      "city": "Bengaluru",
+      "memberCount": 1200,
+      "coverImage": "https://images.unsplash.com/photo-1579010461011-47920f63d8d4?w=800&q=75&auto=format&fit=crop",
+      "logo": "/images/clubs/gearupwheels.svg",
+      "ridingStyle": "Touring",
+      "verified": true,
+      "membershipRequired": false,
+      "state": "Karnataka",
+      "rideCount": 64,
+      "tags": [
+        "Touring",
+        "Community",
+        "Weekend Rides"
+      ],
+      "description": "Bengaluru's weekend touring crew. Breakfast rides, Western Ghats loops and long weekends on the road.",
+      "type": "Community",
+      "bikeType": "Mixed"
+    },
+    {
+      "id": "cl_sincity",
+      "slug": "sin-city-saints",
+      "name": "Sin City Saints",
+      "city": "Delhi NCR",
+      "memberCount": 980,
+      "coverImage": "https://images.unsplash.com/photo-1558980664-3a031cf67ea8?w=800&q=75&auto=format&fit=crop",
+      "logo": "/images/clubs/sin-city-saints.svg",
+      "ridingStyle": "Cruiser",
+      "verified": true,
+      "membershipRequired": true,
+      "state": "Delhi",
+      "rideCount": 40,
+      "tags": [
+        "Cruising",
+        "Night Rides",
+        "Community"
+      ],
+      "description": "Cruisers, chrome and late-night highway runs across the capital region.",
+      "type": "Owners club",
+      "bikeType": "Cruiser"
+    },
+    {
+      "id": "cl_touring",
+      "slug": "touring-tribe-india",
+      "name": "Touring Tribe India",
+      "city": "All India",
+      "memberCount": 1600,
+      "coverImage": "https://images.unsplash.com/photo-1690540293130-2ca04fbf815b?w=800&q=75&auto=format&fit=crop",
+      "logo": "/images/clubs/touring-tribe-india.svg",
+      "ridingStyle": "Adventure",
+      "verified": true,
+      "membershipRequired": false,
+      "state": "",
+      "rideCount": 48,
+      "tags": [
+        "Touring",
+        "Long Rides",
+        "Camping"
+      ],
+      "description": "A pan-India tribe of long-distance tourers. Iron Butt runs, camping trips and cross-country expeditions.",
+      "type": "Touring group",
+      "bikeType": "Mixed"
+    },
+    {
+      "id": "cl_bulleteers",
+      "slug": "bulleteers-mumbai",
+      "name": "Bulleteers Mumbai",
+      "city": "Mumbai",
+      "memberCount": 2100,
+      "coverImage": "https://images.unsplash.com/photo-1536295243470-d7cba4efab7b?w=800&q=75&auto=format&fit=crop&h=400&crop=bottom",
+      "logo": "/images/clubs/bulleteers-mumbai.svg",
+      "ridingStyle": "Classic",
+      "verified": true,
+      "membershipRequired": false,
+      "state": "Maharashtra",
+      "rideCount": 55,
+      "tags": [
+        "Classic Bikes",
+        "Heritage",
+        "Community"
+      ],
+      "description": "Mumbai's biggest family of thumpers. Sunday rides, heritage runs and plenty of chai stops.",
+      "type": "Owners club",
+      "bikeType": "Classic"
+    },
+    {
+      "id": "cl_highlanders",
+      "slug": "himalayan-highlanders",
+      "name": "Himalayan Highlanders",
+      "city": "Chandigarh",
+      "memberCount": 750,
+      "coverImage": "https://images.unsplash.com/photo-1738494777740-21b07e9da9a2?w=800&q=75&auto=format&fit=crop&h=400&crop=bottom",
+      "logo": "/images/clubs/himalayan-highlanders.svg",
+      "ridingStyle": "Off-road",
+      "verified": false,
+      "membershipRequired": true,
+      "state": "Punjab",
+      "rideCount": 30,
+      "tags": [
+        "Adventure",
+        "Off-road",
+        "Camping"
+      ],
+      "description": "Gateway to the Himalayas. Spiti, Ladakh and Kinnaur, every season we can get through.",
+      "type": "Touring group",
+      "bikeType": "Adventure"
+    }
+  ],
+  "meta": {
+    "page": 1,
+    "limit": 14,
+    "total": 14
+  }
+}

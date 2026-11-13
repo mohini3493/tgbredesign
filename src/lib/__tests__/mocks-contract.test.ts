@@ -3,13 +3,14 @@ import { z } from "zod";
 import { paginated } from "../api/client";
 import { routeSchema } from "@/features/routes/schemas";
 import { eventSchema } from "@/features/events/schemas";
-import { clubSchema } from "@/features/clubs/schemas";
+import { clubListingSchema, clubSchema } from "@/features/clubs/schemas";
 import { riderSchema } from "@/features/riders/schemas";
 import { citySchema } from "@/features/cities/schemas";
 import { homeStatsSchema } from "@/features/stats/schemas";
 import routes from "@/mocks/routes.json";
 import events from "@/mocks/events.json";
 import clubs from "@/mocks/clubs.json";
+import clubsDirectory from "@/mocks/clubs-directory.json";
 import riders from "@/mocks/riders.json";
 import cities from "@/mocks/cities.json";
 import stats from "@/mocks/home-stats.json";
@@ -20,6 +21,7 @@ describe("mock fixtures match API schemas", () => {
     ["routes", routes, paginated(routeSchema)],
     ["events", events, paginated(eventSchema)],
     ["clubs", clubs, paginated(clubSchema)],
+    ["clubs directory", clubsDirectory, paginated(clubListingSchema)],
     ["riders", riders, paginated(riderSchema)],
     ["cities", cities, paginated(citySchema)],
     ["stats", stats, z.object({ data: homeStatsSchema })],

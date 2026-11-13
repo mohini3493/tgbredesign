@@ -7,6 +7,7 @@ export const endpoints = {
   popularRoutes: (limit = 5) => `/v1/routes?popular=true&limit=${limit}`,
   upcomingEvents: (limit = 6) => `/v1/events?upcoming=true&limit=${limit}`,
   popularClubs: (limit = 6) => `/v1/clubs?popular=true&limit=${limit}`,
+  clubs: () => "/v1/clubs",
   nearbyRiders: (q: { lat?: number; lng?: number; city?: string; limit?: number }) => {
     const p = new URLSearchParams();
     if (q.lat != null) p.set("lat", String(q.lat));
