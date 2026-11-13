@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import type { ReactNode } from "react";
 import { Container } from "@/components/layout/Container";
+import { ScriptNote, Swoosh } from "@/components/shared/ScriptNote";
 import { SmartImage } from "@/components/shared/SmartImage";
 import { StoreBadges } from "@/components/shared/StoreBadges";
 import { ButtonLink } from "@/components/ui/button";
@@ -76,28 +77,6 @@ function Heading({ id, children, light = false, className }: { id: string; child
     >
       {children}
     </h2>
-  );
-}
-
-/** Hand-written accent with the brand underline swoosh (same treatment as the app popup). */
-function ScriptNote({ lines, className }: { lines: string[]; className?: string }) {
-  return (
-    <div className={cn("font-script text-ink leading-[1.05]", className)} aria-hidden>
-      {lines.map((line, i) => (
-        <p key={line} style={{ paddingLeft: `${i * 0.6}em` }}>
-          {line}
-        </p>
-      ))}
-      <Swoosh className="mt-1 ml-[1.2em] h-4 w-[110px]" />
-    </div>
-  );
-}
-
-function Swoosh({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 120 16" className={className} fill="none" aria-hidden>
-      <path d="M3 13C35 6 75 3 117 3" stroke="#ff7723" strokeWidth="5" strokeLinecap="round" />
-    </svg>
   );
 }
 
@@ -186,7 +165,7 @@ export function AboutMission() {
           </div>
           <ScriptNote
             lines={["Good", "Roads", "Better", "People."]}
-            className="absolute top-1/2 right-0 hidden -translate-y-1/2 -rotate-[8deg] text-[40px] xl:block 2xl:right-8"
+            className="text-ink absolute top-1/2 right-0 hidden -translate-y-1/2 -rotate-[8deg] text-[40px] xl:block 2xl:right-8"
           />
         </div>
       </Container>
@@ -395,7 +374,7 @@ export function AboutApp() {
           </div>
           <ScriptNote
             lines={["Plan.", "Ride.", "Track.", "Belong."]}
-            className="absolute top-1/2 right-0 hidden -translate-y-1/2 -rotate-[8deg] text-[40px] xl:block 2xl:right-8"
+            className="text-ink absolute top-1/2 right-0 hidden -translate-y-1/2 -rotate-[8deg] text-[40px] xl:block 2xl:right-8"
           />
         </div>
       </Container>
