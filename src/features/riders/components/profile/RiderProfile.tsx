@@ -27,6 +27,7 @@ import type { ReactNode } from "react";
 import { Container } from "@/components/layout/Container";
 import { InstagramIcon } from "@/components/shared/BrandIcons";
 import { ScriptNote } from "@/components/shared/ScriptNote";
+import { ShareButton } from "@/components/shared/ShareButton";
 import { SmartImage } from "@/components/shared/SmartImage";
 import { ButtonLink, buttonVariants } from "@/components/ui/button";
 import { AppPromptZone } from "@/features/home/components/AppPrompt";
@@ -34,7 +35,6 @@ import { cn } from "@/lib/utils";
 import type { RideSummary, RiderProfile, Trail } from "../../profile";
 import { BikeCarousel } from "./BikeCarousel";
 import { IndiaRideMap } from "./IndiaRideMap";
-import { ShareProfileButton } from "./ShareProfileButton";
 
 /* ---------- Shared bits ---------- */
 
@@ -220,7 +220,7 @@ export function RiderSidebar({ rider }: { rider: RiderProfile }) {
               Follow
             </ButtonLink>
           </AppPromptZone>
-          <ShareProfileButton title={`${rider.name} on The Good Biker`} />
+          <ShareButton title={`${rider.name} on The Good Biker`} />
         </div>
       </Card>
 

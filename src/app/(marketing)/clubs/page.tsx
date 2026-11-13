@@ -1,29 +1,33 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/layout/Container";
-import { clubsService } from "@/features/clubs/services";
-import { ClubsCta } from "@/features/clubs/components/directory/ClubsCta";
-import { ClubsDirectory } from "@/features/clubs/components/directory/ClubsDirectory";
-import { ClubsHero } from "@/features/clubs/components/directory/ClubsHero";
-import { statsService } from "@/features/stats/services";
+import { clubProfile } from "@/features/clubs/club-profile";
+import {
+  ClubAbout,
+  ClubHero,
+  ClubJoinCta,
+  ClubMedia,
+  ClubRides,
+  ClubTabs,
+} from "@/features/clubs/components/profile/ClubProfile";
 
+// Demo club while the clubs API is wired up: keep it out of search.
 export const metadata: Metadata = {
-  title: "Clubs",
-  description: "Explore motorcycle clubs across India and connect with riders who share your passion for the road.",
+  title: clubProfile.name,
+  description: clubProfile.tagline,
+  robots: { index: false, follow: false },
 };
 
-/** Club directory. Both services are cached ("use cache"), so the page prerenders. */
-export default async function ClubsPage() {
-  const [clubs, stats] = await Promise.all([clubsService.getDirectory(), statsService.getHomeStats()]);
+/** Club profile page (Bangalore Bikers). Actions that need an account open the app download popup. */
+export default function ClubPage() {
   return (
     <>
-      <ClubsHero stats={stats} />
-      <Container className="relative z-10 -mt-10 pb-12 md:-mt-14 md:pb-16">
-        <div className="rounded-card border-border shadow-card overflow-hidden border bg-white">
-          <ClubsDirectory clubs={clubs} />
-        </div>
-        <div className="mt-10">
-          <ClubsCta />
-        </div>
+      <ClubHero club={clubProfile} />
+      <ClubTabs />
+      <Container className="flex flex-col gap-10 py-10 lg:gap-12 lg:py-12">
+        <ClubAbout club={clubProfile} />
+        <ClubRides club={clubProfile} />
+        <ClubMedia club={clubProfile} />
+        <ClubJoinCta club={clubProfile} />
       </Container>
     </>
   );
